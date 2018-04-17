@@ -2,11 +2,11 @@
 
 ## Intro
 
-This is to be my the frontend part of my personal website. It runs on nodejs directly and all the data will be fetched from Ryze, one of my other projects which is written in Go.
+This is to be the frontend part of my personal website. It runs on nodejs directly and all the data will be fetched from Ryze, one of my other projects which is written in Go.
 
 I will deploy this project in a real server after it is finished.
 
-## Structure
+## Tabs
 
 ### Home
 - Introduction of this project
@@ -22,7 +22,7 @@ I will deploy this project in a real server after it is finished.
 ### Comments & advice
 - Please leave a message here
 
-## technology stack
+## Technology stack
 
 ### Frontend (This project)
 - React
