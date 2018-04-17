@@ -22,7 +22,7 @@ I will deploy this project in a real server after it is finished.
 ### Comments & advice
 - Please leave a message here
 
-## Technoledge stack
+## technology stack
 
 ### Frontend (This project)
 - React
