@@ -1773,6 +1773,10 @@ deep-extend@^0.4.0, deep-extend@~0.4.0:
   version "0.4.2"
   resolved "http://npm.caicloud.xyz/deep-extend/-/deep-extend-0.4.2.tgz#48b699c27e334bf89f10892be432f6e4c7d34a7f"
 
+deepmerge@^2.0.1:
+  version "2.1.0"
+  resolved "http://npm.caicloud.xyz/deepmerge/-/deepmerge-2.1.0.tgz#511a54fff405fc346f0240bb270a3e9533a31102"
+
 define-properties@^1.1.2:
   version "1.1.2"
   resolved "http://npm.caicloud.xyz/define-properties/-/define-properties-1.1.2.tgz#83a73f2fea569898fb737193c8f873caf6d45c94"
@@ -5809,7 +5813,7 @@ strip-indent@^1.0.1:
   dependencies:
     get-stdin "^4.0.1"
 
-strip-json-comments@~2.0.1:
+strip-json-comments@^2.0.1, strip-json-comments@~2.0.1:
   version "2.0.1"
   resolved "http://npm.caicloud.xyz/strip-json-comments/-/strip-json-comments-2.0.1.tgz#3c531942e908c2697c0ec344858c286c7ca0a60a"
 
@@ -5986,6 +5990,22 @@ ts-loader@^4.2.0:
     loader-utils "^1.0.2"
     micromatch "^3.1.4"
     semver "^5.0.1"
+
+tsconfig-paths-webpack-plugin@^3.0.4:
+  version "3.0.4"
+  resolved "http://npm.caicloud.xyz/tsconfig-paths-webpack-plugin/-/tsconfig-paths-webpack-plugin-3.0.4.tgz#05a72fbc666910b797326b12ba6aa8521e0a01ba"
+  dependencies:
+    chalk "^2.3.0"
+    tsconfig-paths "^3.2.0"
+
+tsconfig-paths@^3.2.0:
+  version "3.3.1"
+  resolved "http://npm.caicloud.xyz/tsconfig-paths/-/tsconfig-paths-3.3.1.tgz#e2f4f46ea23a245fc07ba2f84be5f3fab17ee2d5"
+  dependencies:
+    deepmerge "^2.0.1"
+    minimist "^1.2.0"
+    strip-bom "^3.0.0"
+    strip-json-comments "^2.0.1"
 
 tslib@^1.8.0, tslib@^1.8.1:
   version "1.9.0"

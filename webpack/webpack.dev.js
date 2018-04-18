@@ -4,6 +4,7 @@ const webpack = require('webpack');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
 const htmlPlugin = new HtmlWebpackPlugin({
   template: path.resolve(__dirname, '../src/index.html')
@@ -15,9 +16,14 @@ const extractSass = new ExtractTextPlugin({
 });
 
 const forkTsChecker = new ForkTsCheckerWebpackPlugin({
-  tsconfig: './src/ts/tsconfig.json',
-  tslint: './src/ts/tslint.json'
+  tsconfig: path.resolve(__dirname, '../tsconfig.json'),
+  tslint: path.resolve(__dirname, '../tslint.json')
 });
+
+// 超级无敌天坑
+const tsconfigPathResolver = new TsconfigPathsPlugin({
+  configFile: path.resolve(__dirname, '../tsconfig.json')
+})
 
 module.exports = {
 	mode: "development",
@@ -53,6 +59,7 @@ module.exports = {
   },
   resolve: {
     extensions: [ '.tsx', '.ts', '.js' ],
+    plugins:[tsconfigPathResolver]
 	},
 	plugins: [
     htmlPlugin,

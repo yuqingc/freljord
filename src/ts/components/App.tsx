@@ -4,7 +4,7 @@ import React from 'react';
 
 class App extends React.Component<{}, {}> {
     public render () {
-        return <h1 className="main test">Hello world! haha!!</h1>;
+        return <h1 className="main test">Hello world! haha!!,,!</h1>;
     }
 }
 
