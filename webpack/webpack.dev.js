@@ -1,13 +1,23 @@
 const path = require('path');
 
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
+
+const htmlPlugin = new HtmlWebpackPlugin({
+  template: path.resolve(__dirname, '../src/index.html')
+});
 
 const extractSass = new ExtractTextPlugin({
-    filename: "styles/[name].[hash].css",
+    filename: 'styles/[name].[hash].css',
     disable: process.env.NODE_ENV === "development"
 });
 
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const forkTsChecker = new ForkTsCheckerWebpackPlugin({
+  tsconfig: './src/ts/tsconfig.json',
+  tslint: './src/ts/tslint.json'
+})
+
 
 module.exports = {
 	mode: "development",
@@ -43,10 +53,9 @@ module.exports = {
     extensions: [ '.tsx', '.ts', '.js' ]
 	},
 	plugins: [
-    new HtmlWebpackPlugin({
-        template: path.resolve(__dirname, '../src/index.html')
-		}),
-		extractSass
+    htmlPlugin,
+    extractSass,
+    forkTsChecker
 ],
   output: {
     filename: 'bundle.js',
