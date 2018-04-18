@@ -4,8 +4,13 @@ import '../styles/index.scss';
 
 import React from 'react';
 import ReactDOM from 'react-dom';
+import App from './components/App';
 
-ReactDOM.render(
-  <h1 className="main test">Hello, world!</h1>,
-  document.getElementById('root'),
+declare const module: any;
+
+const render = (Component: any) => ReactDOM.render(
+  <Component/>,
+  document.getElementById('root') as HTMLElement,
 );
+
+render(App);

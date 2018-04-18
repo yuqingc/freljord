@@ -1,5 +1,6 @@
 const path = require('path');
 
+const webpack = require('webpack');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
@@ -16,8 +17,7 @@ const extractSass = new ExtractTextPlugin({
 const forkTsChecker = new ForkTsCheckerWebpackPlugin({
   tsconfig: './src/ts/tsconfig.json',
   tslint: './src/ts/tslint.json'
-})
-
+});
 
 module.exports = {
 	mode: "development",
@@ -26,7 +26,9 @@ module.exports = {
     rules: [
       {
         test: /\.tsx?$/,
-        use: [ 'ts-loader' ],
+        use: [ 
+          'ts-loader', 
+      ],
         exclude: /node_modules/
 			},
 			{
@@ -50,12 +52,12 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: [ '.tsx', '.ts', '.js' ]
+    extensions: [ '.tsx', '.ts', '.js' ],
 	},
 	plugins: [
     htmlPlugin,
     extractSass,
-    forkTsChecker
+    forkTsChecker,
 ],
   output: {
     filename: 'bundle.js',
