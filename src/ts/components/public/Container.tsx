@@ -14,7 +14,7 @@ const siderStyle: CSSProperties = {
   left: 0,
 };
 
-const leftLayoutStyle: any = {
+const leftLayoutStyle: CSSProperties = {
   marginLeft: 200,
 };
 
