@@ -1,5 +1,12 @@
 // This is the index file of all css
-@import "test.scss";
+@import 'test.scss';
+@import 'headerBar.scss';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 .main {
     color: #ec9c52;
