@@ -12,7 +12,12 @@ const app = express();
 const PORT = 3000;
 
 app.use(middleware(compiler, {
-    publicPath: '/'
+    publicPath: '/',
+    lazy: false,
+    watchOptions: {
+        aggregateTimeout: 300,
+        poll: 1000
+    }
 }));
 
 app.listen(PORT, () => {

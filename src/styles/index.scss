@@ -1,6 +1,9 @@
 // This is the index file of all css
-@import 'test.scss';
-@import 'headerBar.scss';
+
+@import '~antd/dist/antd.css';
+
+@import 'test';
+@import 'headerBar';
 
 * {
     margin: 0;

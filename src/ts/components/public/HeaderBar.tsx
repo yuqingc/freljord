@@ -1,9 +1,12 @@
 // Copyright 2018 Matt<mr.chenyuqing@live.com>
 
 import React from 'react';
+import { Layout } from 'antd';
+
+const {Header} = Layout;
 
 const HeaderBar = () => (
-    <div className="header-bar"></div>
+    <Header className="mt-header-bar">Header</Header>
 );
 
 export default HeaderBar;

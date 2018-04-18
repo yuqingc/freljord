@@ -60,7 +60,7 @@ module.exports = {
                 // use style-loader in development
                 fallback: "style-loader"
             })
-			}
+      }
     ]
   },
   resolve: {
