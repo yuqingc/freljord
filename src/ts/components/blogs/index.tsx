@@ -1,4 +1,4 @@
-import Technology from './Technology';
-import Resume from './Resume';
+import Technology from './technology/Technology';
+import Resume from './resume/Resume';
 
 export { Technology, Resume};

@@ -7,30 +7,6 @@ import { Home } from 'components/home';
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import NotFound from './NotFound';
 
-// 行为艺术
-function renderRoutesRecursively(configs: ISidebarRouter[]): any {
-  const resultRoutes: any = [];
-  (function go (innerConfigs: ISidebarRouter[], parentPath: string): void {
-    for (let v of innerConfigs) {
-      if (v.children) {
-        go(v.children, v.path);
-      }
-      else {
-        resultRoutes.push(
-          <Route 
-            key={v.name}
-            path={parentPath + v.path}
-            exact={v.exact}
-            component={v.component}
-          />
-        );
-      }
-    }
-  })(configs, '')
-
-  return resultRoutes;
-}
-
 class AppRouters extends React.Component<{}, {}> {
 
   // The art of recursion

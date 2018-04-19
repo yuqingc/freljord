@@ -1,4 +1,4 @@
-import Books from './Books';
-import Files from './Files';
+import Books from './books/Books';
+import Files from './files/Files';
 
 export {Books, Files};
