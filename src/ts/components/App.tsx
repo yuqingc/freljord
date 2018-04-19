@@ -2,11 +2,15 @@
 
 import React from 'react';
 import AppRouters from 'components/public/AppRouters';
+import store from 'utils/store';
+import { Provider } from 'react-redux';
 
 class App extends React.Component<{}, {}> {
     public render () {
         return (
-            <AppRouters/>
+            <Provider store={store}>
+                <AppRouters/>
+            </Provider>
         );
     }
 }

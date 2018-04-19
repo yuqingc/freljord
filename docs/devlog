@@ -7,3 +7,4 @@ Fix a very disgusting thing: fix tsconfig baseUrl and Paths parsing problem with
 
 20180419
 Finish router
+Redux 4.0.0 is released but redux-thunk's type is not compatible yet
