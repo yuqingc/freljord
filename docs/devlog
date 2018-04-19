@@ -4,3 +4,6 @@ Start project
 20180418
 Add webpack
 Fix a very disgusting thing: fix tsconfig baseUrl and Paths parsing problem with tsconfig-paths-webpack-plugin
+
+20180419
+Finish router

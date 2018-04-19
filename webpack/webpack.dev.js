@@ -73,8 +73,10 @@ module.exports = {
     extractSass,
     forkTsChecker,
 ],
+  // publicPath is essential, without which the page will fail on refreshing the browser 
   output: {
     filename: 'bundle.js',
-    path: path.resolve(__dirname, '../dist')
+    path: path.resolve(__dirname, '../dist/'),
+    publicPath: '/'
   }
 };
