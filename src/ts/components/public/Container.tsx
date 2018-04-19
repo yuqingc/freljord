@@ -1,34 +1,43 @@
 // Copyright 2018 Matt<mr.chenyuqing@live.com>
 
-import React, { CSSProperties } from 'react';
+import React from 'react';
 import HeaderBar from './HeaderBar';
 import SideMenu from './SideMenu';
-import { Layout } from 'antd';
+import { Layout} from 'antd';
+import FooterText from './FooterText';
 
 const { Header, Footer, Sider, Content } = Layout;
 
-const siderStyle: CSSProperties = { 
-  overflow: 'auto',
-  height: '100vh',
-  position: 'fixed',
-  left: 0,
-};
+interface IContainerState {
+  collapsed: boolean,
+}
 
-const leftLayoutStyle: CSSProperties = {
-  marginLeft: 200,
-};
+class Container extends React.Component<any, IContainerState> {
+  public state = {
+    collapsed: false,
+  };
 
-class Container extends React.Component<{}, {}> {
-  render() {
+  public onCollapse = (collapsed: boolean) => {
+    console.log(collapsed);
+    this.setState({collapsed});
+  }
+
+  public render() {
     return (
       <Layout>
-        <Sider style={siderStyle}>
+        <Sider
+          collapsible
+          collapsed={this.state.collapsed}
+          onCollapse={this.onCollapse}
+        >
           <SideMenu/>
         </Sider>
-        <Layout style={leftLayoutStyle}>
-          <HeaderBar/>
-          <Content style={{margin: '24px 16px 0', overflow: 'initial'}}>{this.props.children}</Content>
-          <Footer>Footer</Footer>
+        <Layout className="mt-left-layout">
+          <Header className="mt-header">
+            <HeaderBar/>
+          </Header>
+          <Content className="mt-content">{this.props.children}</Content>
+          <Footer className="mt-footer"><FooterText/></Footer>
         </Layout>
     </Layout>
       );

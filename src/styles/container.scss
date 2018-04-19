@@ -1,0 +1,19 @@
+// Copyright 2018 Matt<mr.chenyuqing@live.com>
+.mt-left-layout{
+  
+  min-height: 100vh;
+
+  .mt-header {
+    padding: 0;
+  }
+
+  .mt-content {
+    margin: 24px 16px;
+    padding: 24;
+    background: '#fff';
+  }
+
+  .mt-footer {
+    text-align: center;
+  }
+}

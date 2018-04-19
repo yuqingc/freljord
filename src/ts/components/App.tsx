@@ -1,53 +1,12 @@
 // Copyright 2018 Matt<mr.chenyuqing@live.com>
 
 import React from 'react';
-import Container from 'components/public/Container';
+import AppRouters from 'components/public/AppRouters';
 
 class App extends React.Component<{}, {}> {
     public render () {
         return (
-            <Container>
-            <p>contents</p>
-            <p>...</p>
-            <p>contents</p>
-            <p>...</p>
-            <p>contents</p>
-            <p>...</p>
-            <p>contents</p>
-            <p>...</p>
-            <p>contents</p>
-            <p>...</p>
-            <p>contents</p>
-            <p>...</p>
-            <p>contents</p>
-            <p>...</p>
-            <p>contents</p>
-            <p>...</p>
-            <p>contents</p>
-            <p>...</p>
-            <p>contents</p>
-            <p>...</p>
-            <p>contents</p>
-            <p>...</p>
-            <p>contents</p>
-            <p>...</p>
-            <p>contents</p>
-            <p>...</p>
-            <p>contents</p>
-            <p>...</p>
-            <p>contents</p>
-            <p>...</p>
-            <p>contents</p>
-            <p>...</p>
-            <p>contents</p>
-            <p>...</p>
-            <p>contents</p>
-            <p>...</p>
-            <p>contents</p>
-            <p>...</p>
-            <p>contents</p>
-            <p>...</p>
-            </Container>
+            <AppRouters/>
         );
     }
 }

@@ -15,9 +15,11 @@ I will deploy this project in a real server after it is finished.
 ### Blogs
 - Blogs
 - The first blog is going to be the infomation about all the technologies that are apllied in this project
+- Resume (password needed to view)
 
-### Gallery
-- Pictures
+### Downloads
+- Books
+- Other files
 
 ### Comments & advice
 - Please leave a message here
