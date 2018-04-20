@@ -31,9 +31,9 @@ Code style is checked by tslint with `tslint.json`. Here are some conventions ab
 
 Any developers of this project should follow these rules:
 
-- Importing statement blocks of inner and outer modules should be seperated with an empty line 
-- You don't have to order your imports by alphabet
-- Importing statements of outer modules must go before inner modules
+- Importing statement blocks of internal and external modules (in `node_modules/`) should be seperated with an empty line 
+- You don't have to order your importings by alphabet
+- Importing statements of external modules must go before any internal modules
 - Absolute path relative to the baseUrl, defined by `tsconfig.json`,  is recommended
 - Don't use too deep relative parent path, eg., `../../something`, `../something`, which makes it hard to understand the code
 
@@ -59,5 +59,5 @@ import { Home } from 'components/home'; // need an empty line
 import sidebarRouterConfig, { ISidebarRouter } from '../../utils/sidebarRouterConfig'; // too many `../`
 import Container from './Container';
 import NotFound from './NotFound';
-import React from 'react'; // outer module import should go to the beginning
+import React from 'react'; // external module importing should go to the beginning
 ```
