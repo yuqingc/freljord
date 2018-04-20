@@ -67,13 +67,12 @@ class SideMenu extends React.Component<any, ISideMenuProps> {
               <Icon type={v.icon} />
               <span>{v.name}</span>
             </Menu.Item>
-        );
-      },
-        )
+          );
+        })
       }
       </Menu>
-      );
-    }
+    );
+  }
 }
 
 export default withRouter(SideMenu);

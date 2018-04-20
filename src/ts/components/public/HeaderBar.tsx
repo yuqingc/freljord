@@ -10,7 +10,7 @@ class HeaderBar extends React.Component<{}, {}> {
       <Col span={6}>Header1</Col>
       <Col span={18}>Header2</Col>
     </Row>);
-    }
+  }
 }
 
 export default HeaderBar;

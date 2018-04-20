@@ -39,8 +39,8 @@ class Container extends React.Component<any, IContainerState> {
           <Content className="mt-content">{this.props.children}</Content>
           <Footer className="mt-footer"><FooterText/></Footer>
         </Layout>
-    </Layout>
-      );
+      </Layout>
+    );
   }
 }
 
