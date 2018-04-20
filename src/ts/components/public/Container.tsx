@@ -18,7 +18,6 @@ class Container extends React.Component<any, IContainerState> {
   };
 
   public onCollapse = (collapsed: boolean) => {
-    console.log(collapsed);
     this.setState({collapsed});
   }
 

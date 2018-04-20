@@ -77,6 +77,8 @@ const sidebarRouterConfig: ISidebarRouter[] = [
     },
 ];
 
+// absPath is the absolute path
+// absPath is used as key of side menu
 interface ISidebarRouter {
     name: string;
     path: string;
@@ -89,4 +91,4 @@ interface ISidebarRouter {
 }
 
 export default sidebarRouterConfig;
-export {ISidebarRouter};
+export { ISidebarRouter };

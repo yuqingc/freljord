@@ -2,9 +2,10 @@
 
 import React from 'react';
 import { Icon } from 'antd';
+import { COPYRIGHT_TEXT } from 'utils/consts';
 
 const FooterText = (props: {}) => (
-  <>{`Copyright © Matt<mr.chenyuqing@live.com> Powered by`} <Icon type="ant-design"/>{` Ant Design`}</>
+  <>{`${COPYRIGHT_TEXT} Powered by`} <Icon type="ant-design"/>{` Ant Design`}</>
 );
 
 export default FooterText;

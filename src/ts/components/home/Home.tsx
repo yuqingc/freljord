@@ -5,16 +5,15 @@ import { connect } from 'react-redux';
 import { IMtState } from 'reducers';
 import { bindActionCreators } from 'redux';
 import * as homeActions  from 'actions/homeActions';
-import store from 'utils/store';
 
 class Home extends React.Component<any, {}> {
 
   changeName (name: string) {
     const { actions } = this.props;
-    store.dispatch(homeActions.changeName(name))
+    actions.changeName(name);
   }
 
-  public render() {
+  public render () {
     const { name } = this.props;
     return (
       <div>
@@ -37,6 +36,5 @@ const mapDispatchToProps = (dispatch: any) => (
     actions: bindActionCreators(homeActions, dispatch),
   }
 );
-
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home as any);

@@ -9,18 +9,20 @@ import NotFound from './NotFound';
 
 class AppRouters extends React.Component<{}, {}> {
 
-  // The art of recursion
-  renderRoutesRecursively(configs: ISidebarRouter[]): any {
+  // Render routes recursively
+  // If the route is encrypted and the current user is not admin, it will redirect to the NotFound page
+  // Any depth of route should be registered with this function,
+  // but the side bar only renders to the second depth of route at most
+  public renderRoutesRecursively (configs: ISidebarRouter[]): any {
     const isAdmin = false;
     const resultRoutes: any = [];
     (function go (innerConfigs: ISidebarRouter[], parentPath: string): void {
       for (let v of innerConfigs) {
         if (v.children && (!v.isEncrypted || isAdmin)) {
           go(v.children, v.path);
-        }
-        else if (!v.isEncrypted || isAdmin) {
+        } else if (!v.isEncrypted || isAdmin) {
           resultRoutes.push(
-            <Route 
+            <Route
               key={v.name}
               path={parentPath + v.path}
               exact={v.exact}
@@ -29,7 +31,7 @@ class AppRouters extends React.Component<{}, {}> {
           );
         }
       }
-    })(configs, '')
+    })(configs, '');
 
     return resultRoutes;
   }
