@@ -3,7 +3,7 @@
 import React from 'react';
 
 class Resume extends React.Component<{}, {}> {
-  public render() {
+  public render () {
     return (
       <div>Resume</div>
     );

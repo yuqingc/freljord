@@ -3,7 +3,7 @@
 import React from 'react';
 import HeaderBar from './HeaderBar';
 import SideMenu from './SideMenu';
-import { Layout} from 'antd';
+import { Layout } from 'antd';
 import FooterText from './FooterText';
 
 const { Header, Footer, Sider, Content } = Layout;
@@ -21,7 +21,7 @@ class Container extends React.Component<any, IContainerState> {
     this.setState({collapsed});
   }
 
-  public render() {
+  public render () {
     return (
       <Layout>
         <Sider

@@ -4,7 +4,7 @@ import React from 'react';
 import sidebarRouterConfig, { ISidebarRouter } from 'utils/sidebarRouterConfig';
 import Container from './Container';
 import { Home } from 'components/home';
-import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import NotFound from './NotFound';
 
 class AppRouters extends React.Component<{}, {}> {
@@ -17,7 +17,7 @@ class AppRouters extends React.Component<{}, {}> {
     const isAdmin = false;
     const resultRoutes: any = [];
     (function go (innerConfigs: ISidebarRouter[], parentPath: string): void {
-      for (let v of innerConfigs) {
+      for (const v of innerConfigs) {
         if (v.children && (!v.isEncrypted || isAdmin)) {
           go(v.children, v.path);
         } else if (!v.isEncrypted || isAdmin) {

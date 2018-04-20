@@ -3,7 +3,7 @@
 import React from 'react';
 
 class Files extends React.Component<{}, {}> {
-  public render() {
+  public render () {
     return (
       <div>Files</div>
     );

@@ -1,7 +1,7 @@
 // Copyright 2018 Matt<mr.chenyuqing@live.com>
 
 import React from 'react';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const NotFound = () => (
   <div>

@@ -23,6 +23,7 @@ class SideMenu extends React.Component<any, ISideMenuProps> {
   public render () {
     const isAdmin = true;
     const { location: { pathname } } = this.props;
+
     return (
       <Menu
         theme="dark"

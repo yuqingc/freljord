@@ -4,7 +4,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { IMtState } from 'reducers';
 import { bindActionCreators } from 'redux';
-import * as homeActions  from 'actions/homeActions';
+import * as homeActions from 'actions/homeActions';
 
 class Home extends React.Component<any, {}> {
 
@@ -15,6 +15,7 @@ class Home extends React.Component<any, {}> {
 
   public render () {
     const { name } = this.props;
+
     return (
       <div>
         <p>name:{name}</p>
