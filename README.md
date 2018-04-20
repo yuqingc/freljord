@@ -27,7 +27,7 @@ This will bundle everything in the /dist/ directory
 
 ### Code style conventions
 
-Code style is checked by tslint with tslint.json. Here are some conventions about TypeScript importing conventions that tslint does not cover.
+Code style is checked by tslint with `tslint.json`. Here are some conventions about TypeScript importing conventions that tslint does not cover.
 
 Any developers of this project should follow these rules:
 
