@@ -1,9 +1,10 @@
 // Copyright 2018 Matt<mr.chenyuqing@live.com>
 
-import { Icon, Menu } from 'antd';
 import React from 'react';
-import sidebarRouterConfig, { ISidebarRouter } from 'utils/sidebarRouterConfig';
+import { Icon, Menu } from 'antd';
 import { withRouter } from 'react-router';
+
+import sidebarRouterConfig, { ISidebarRouter } from 'utils/sidebarRouterConfig';
 
 const SubMenu = Menu.SubMenu;
 // const MenuItemGroup = Menu.ItemGroup;

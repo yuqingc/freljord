@@ -1,10 +1,11 @@
 // Copyright 2018 Matt<mr.chenyuqing@live.com>
 
 import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+
 import sidebarRouterConfig, { ISidebarRouter } from 'utils/sidebarRouterConfig';
 import Container from './Container';
 import { Home } from 'components/home';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import NotFound from './NotFound';
 
 class AppRouters extends React.Component<{}, {}> {

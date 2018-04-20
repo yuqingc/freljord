@@ -1,6 +1,7 @@
 // Copyright 2018 Matt<mr.chenyuqing@live.com>'
 
 import { combineReducers } from 'redux';
+
 import home from './home';
 
 const reducer = combineReducers({

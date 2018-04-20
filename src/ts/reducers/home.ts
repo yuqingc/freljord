@@ -1,6 +1,7 @@
 // Copyright 2018 Matt<mr.chenyuqing@live.com>
 
 import immutable from 'immutable';
+
 import { IHomeAction } from 'actions';
 
 interface IHomeState {

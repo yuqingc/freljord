@@ -1,7 +1,7 @@
 // Copyright 2018 Matt<mr.chenyuqing@live.com>
 
-import { Col, Row } from 'antd';
 import React from 'react';
+import { Col, Row } from 'antd';
 
 class HeaderBar extends React.Component<{}, {}> {
   public render () {

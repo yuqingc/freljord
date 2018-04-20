@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { Icon } from 'antd';
+
 import { COPYRIGHT_TEXT } from 'utils/consts';
 
 const FooterText = (props: {}) => (

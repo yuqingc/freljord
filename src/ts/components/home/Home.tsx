@@ -1,9 +1,10 @@
 // Copyright 2018 Matt<mr.chenyuqing@live.com>
 
 import React from 'react';
-import { connect } from 'react-redux';
-import { IMtState } from 'reducers';
 import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+
+import { IMtState } from 'reducers';
 import * as homeActions from 'actions/homeActions';
 
 class Home extends React.Component<any, {}> {

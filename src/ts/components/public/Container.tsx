@@ -1,9 +1,10 @@
 // Copyright 2018 Matt<mr.chenyuqing@live.com>
 
 import React from 'react';
+import { Layout } from 'antd';
+
 import HeaderBar from './HeaderBar';
 import SideMenu from './SideMenu';
-import { Layout } from 'antd';
 import FooterText from './FooterText';
 
 const { Header, Footer, Sider, Content } = Layout;
