@@ -32,7 +32,7 @@ class Container extends React.Component<any, IContainerState> {
         >
           <SideMenu/>
         </Sider>
-        <Layout className="mt-left-layout">
+        <Layout className="mt-right-layout">
           <Header className="mt-header">
             <HeaderBar/>
           </Header>
