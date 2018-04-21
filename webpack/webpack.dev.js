@@ -8,7 +8,9 @@ const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 const htmlPlugin = new HtmlWebpackPlugin({
-  template: path.resolve(__dirname, '../src/index.html')
+  template: path.resolve(__dirname, '../src/index.html'),
+  title: 'Freljord',
+  favicon: path.resolve(__dirname, '../src/images/favicon.ico')
 });
 
 const extractSass = new ExtractTextPlugin({
@@ -60,7 +62,15 @@ module.exports = {
                 // use style-loader in development
                 fallback: "style-loader"
             })
-      }
+      },
+      {
+        test: /\.(png|jpe?g|gif|ico)$/,
+        use: [
+          {
+            loader: 'file-loader',
+          }
+        ]
+      },
     ]
   },
   resolve: {

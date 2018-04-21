@@ -2,7 +2,7 @@
 
 import immutable from 'immutable';
 
-import { IHomeAction } from 'actions';
+import { IHomeAction } from 'ts/actions';
 
 interface IHomeState {
     name: string

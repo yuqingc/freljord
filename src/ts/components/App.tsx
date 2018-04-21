@@ -3,8 +3,8 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 
-import AppRouters from 'components/public/AppRouters';
-import store from 'utils/store';
+import AppRouters from 'ts/components/public/AppRouters';
+import store from 'ts/utils/store';
 
 class App extends React.Component<{}, {}> {
     public render () {

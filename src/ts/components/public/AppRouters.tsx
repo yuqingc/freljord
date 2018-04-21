@@ -3,9 +3,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-import sidebarRouterConfig, { ISidebarRouter } from 'utils/sidebarRouterConfig';
+import sidebarRouterConfig, { ISidebarRouter } from 'ts/utils/sidebarRouterConfig';
 import Container from './Container';
-import { Home } from 'components/home';
+import { Home } from 'ts/components/home';
 import NotFound from './NotFound';
 
 class AppRouters extends React.Component<{}, {}> {

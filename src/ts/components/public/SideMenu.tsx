@@ -4,7 +4,7 @@ import React from 'react';
 import { Icon, Menu } from 'antd';
 import { withRouter } from 'react-router';
 
-import sidebarRouterConfig, { ISidebarRouter } from 'utils/sidebarRouterConfig';
+import sidebarRouterConfig, { ISidebarRouter } from 'ts/utils/sidebarRouterConfig';
 
 const SubMenu = Menu.SubMenu;
 // const MenuItemGroup = Menu.ItemGroup;

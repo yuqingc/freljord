@@ -4,8 +4,8 @@ import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import { IMtState } from 'reducers';
-import * as homeActions from 'actions/homeActions';
+import { IMtState } from 'ts/reducers';
+import * as homeActions from 'ts/actions/homeActions';
 
 class Home extends React.Component<any, {}> {
 
