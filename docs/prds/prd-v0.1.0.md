@@ -4,7 +4,7 @@
 
 - Due time: July 30, 2018
 - Product feature: Basic functions of a website
-- Author: @yuqingc
+- Author: [@yuqingc](https://github.com/yuqingc)
 - Created on April 21, 2018
 
 ## Features
@@ -61,4 +61,4 @@
 
 ---
 
-Edited on April 21, 2018 by @yuqingc
+Edited on April 21, 2018 by [@yuqingc](https://github.com/yuqingc)
