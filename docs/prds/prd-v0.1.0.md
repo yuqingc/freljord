@@ -20,7 +20,7 @@
 
 - A background picture with low contrast ratio
 - `Contact me` texts
-- Github, Zhihu, and Weibo icon linking to the corresponing websites
+- Github, Zhihu, and Email icon linking to the corresponing websites
 
 ### Technology page
 
@@ -51,13 +51,13 @@
 
 - Only administrater can see this tab and page
 - Non-admin will be directed to a Not found 404 page if he forces to visit it by url
-- Empty for now but some texts needs to be fetched from server
+- Empty for now but some texts need to be fetched from server
 
 ### User management
 
 - OAuth 2.0 is used for authentication
-- Try logging in on rendering page the first time. If successful (valid token not expired), the `isAdmin` flag is set to `true`, other wise it it set to false.
-- Trying to deleting a comment or requesting an encrypted content (texts in the Encrypted page) will make an authenticaton. If fail, the `isAdmin` flag will set to false and the login window pops out.
+- Try logging in on rendering page the first time. If successful (valid token not expired), the `isAdmin` flag is set to `true`, other wise it is set to false.
+- Trying to deleting a comment or requesting an encrypted content (texts in the Encrypted page) will make an authenticaton. If fail, the `isAdmin` flag will be set to false and the login window pops out.
 
 ---
 
