@@ -1,5 +1,5 @@
 # freljord
-Personal site powered by Ryze
+Personal site powered by [Ryze](https://github.com/yuqingc/ryze)
 
 ---
 
