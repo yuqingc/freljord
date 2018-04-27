@@ -6,6 +6,7 @@ import { Layout } from 'antd';
 import HeaderBar from './HeaderBar';
 import SideMenu from './SideMenu';
 import FooterText from './FooterText';
+import LoginModal from './LoginModal';
 
 const { Header, Footer, Sider, Content } = Layout;
 
@@ -39,6 +40,7 @@ class Container extends React.Component<any, IContainerState> {
           <Content className="mt-content">{this.props.children}</Content>
           <Footer className="mt-footer"><FooterText/></Footer>
         </Layout>
+        <LoginModal/>
       </Layout>
     );
   }

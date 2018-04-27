@@ -1,8 +1,17 @@
 // Copyright 2018 Matt<mr.chenyuqing@live.com>
 
-interface IHomeAction {
+interface IMainAction {
     type: string;
     [propName: string]: any;
 }
 
-export { IHomeAction };
+interface IHomeAction {
+    type: string;
+    name: string;
+    [propName: string]: any;
+}
+
+export {
+    IMainAction,
+    IHomeAction,
+};

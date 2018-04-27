@@ -1,7 +1,19 @@
 // Copyright 2018 Matt<mr.chenyuqing@live.com>
 
 .mt-header-bar {
+    height: 64px;
     background-color: #ffffff; 
     padding: 0 10px;
     box-shadow: #dddddd 0 6px 5px;
+    .mt-header-right {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        .mt-header-right-items {
+            width: 220px;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+        }
+    }
 }
