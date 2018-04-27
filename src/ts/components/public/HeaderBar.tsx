@@ -46,7 +46,7 @@ class HeaderBar extends React.Component<any, {}> {
     const userMenu = (
       <Menu onClick={({key}) => this.clickMenu(key)}>
         <Menu.Item key="logout">
-          <Icon type="logout"/> Logout
+          <Icon type="logout"/> Log out
         </Menu.Item>
       </Menu>
     );
@@ -68,9 +68,9 @@ class HeaderBar extends React.Component<any, {}> {
           </Tooltip>
           {
             isLoggedIn ?
-            <Dropdown overlay={userMenu}><span>{username} <Icon type="down"/></span></Dropdown> :
+            <Dropdown overlay={userMenu}><span><Icon type="user"/> {username} <Icon type="down"/></span></Dropdown> :
             <Tooltip placement="bottom" title="Login to manage this site">
-              <Button onClick={() => this.login()}><Icon type="login"/>Login</Button>
+              <Button onClick={() => this.login()}><Icon type="login"/>Log in</Button>
             </Tooltip>
           }
         </div>

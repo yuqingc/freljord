@@ -5,7 +5,9 @@ import immutable from 'immutable';
 import { IMainAction } from 'ts/actions';
 
 interface IMainState {
-  showLoginModal: boolean
+  showLoginModal: boolean,
+  username: string,
+  isLoggedIn: boolean,
 }
 
 const initalState: any = immutable.fromJS({
