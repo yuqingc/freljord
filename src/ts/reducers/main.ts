@@ -13,7 +13,7 @@ interface IMainState {
 const initalState: any = immutable.fromJS({
    showLoginModal: false,
    username: 'admin',
-   isLoggedIn: true,
+   isLoggedIn: false,
 } as IMainState);
 
 export default function home (state = initalState, action: IMainAction) {

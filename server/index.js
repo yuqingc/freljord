@@ -4,6 +4,8 @@ const path = require('path');
 const webpack = require('webpack');
 const middleware = require('webpack-dev-middleware');
 const express = require('express');
+var bodyParser = require('body-parser');
+// var multer = require('multer');
 
 const devConfig = require('../webpack/webpack.dev');
 const compiler = webpack(devConfig);
@@ -23,6 +25,17 @@ app.use(middleware(compiler, {
     }
 }));
 
+app.use(bodyParser.json()); // for parsing application/json
+app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
+// app.use(multer()); // for parsing multipart/form-data
+
+app.use('/ryze', function (req, res, next) {
+    console.log('baseurl', req.baseUrl, req.path, req.url, req.originalUrl);
+    console.log('body', req.body, req.method);
+    res.redirect(307, `http://localhost:8080/api${req.path}`)
+    res.end();
+})
+
 // https://github.com/jantimon/html-webpack-plugin/issues/145
 app.use('*', function (req, res, next) {
     var filename = path.join(compiler.outputPath,'index.html');
@@ -33,7 +46,7 @@ app.use('*', function (req, res, next) {
         }
         res.set('content-type','text/html');
         res.send(result);
-        res.end();
+        next();
     });
 });
 

@@ -1,46 +1,93 @@
 // Copyright 2018 Matt<mr.chenyuqing@live.com>
 
 import React from 'react';
-import { Modal } from 'antd';
+import { Modal, Form, Input, Icon, Button } from 'antd';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 import { IMtState } from 'ts/reducers';
 import * as mainActions from 'ts/actions/mainActions';
 
-interface ILoginModalProps {
-  showLoginModal: boolean;
-  actions: any;
-}
+const FormItem  = Form.Item;
 
-class LoginModal extends React.Component<ILoginModalProps, {}> {
+class LoginModal extends React.Component<any, {}> {
 
   public handleCancel () {
     const { actions } = this.props;
+    const { resetFields } = this.props.form;
+    resetFields();
     actions.toggleLoginModal(false);
   }
 
-  public handleOk () {
+  public handleSubmit () {
     const { actions } = this.props;
-    actions.fakeLogin();
-    actions.toggleLoginModal(false);
+    const { resetFields } = this.props.form;
+    this.props.form.validateFields((err: any, values: any) => {
+      if (!err) {
+        console.log('Received values of form: ', values);
+        actions.login(values);
+        resetFields();
+        actions.toggleLoginModal(false);
+      }
+    });
   }
 
   public render () {
-    const { showLoginModal } = this.props;
+    const { showLoginModal, actions } = this.props;
+    const { getFieldDecorator } = this.props.form;
 
     return (
       <Modal
-        title="Login"
+        title="Log in"
         visible={showLoginModal}
-        onCancel={() => this.handleCancel()}
-        onOk={() => this.handleOk()}
+        okText="Log in"
+        onCancel={() => {this.handleCancel();}}
+        onOk={() => {this.handleSubmit();}}
       >
-      xxxxx
+        <Form layout="vertical">
+          <FormItem>
+          {getFieldDecorator('username', {
+            rules: [
+              {
+                required: true,
+                message: 'Please input your username!',
+              },
+              {
+                max: 30,
+                message: 'Cannot be over 30 characters!'
+              },
+              {
+                whitespace: true,
+                message: 'Whitespace is invalid!'
+              }
+            ],
+          })(
+              <Input prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Username" />
+            )}
+          </FormItem>
+          <FormItem>
+            {getFieldDecorator('password', {
+              rules: [
+                {
+                  required: true,
+                  message: 'Please input your Password!',
+                },
+                {
+                  max: 50,
+                  message: 'Too long!'
+                }
+              ],
+              })(
+              <Input prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} type="password" placeholder="Password" />
+            )}
+          </FormItem>
+        </Form>
       </Modal>
     );
   }
 }
+
+const WrappedLoginModal = Form.create()(LoginModal);
 
 const mapStateToProps = (state: IMtState) => (
   {
@@ -54,4 +101,4 @@ const mapDispatchToProps = (dispatch: any) => (
   }
 );
 
-export default connect(mapStateToProps, mapDispatchToProps)(LoginModal as any);
+export default connect(mapStateToProps, mapDispatchToProps)(WrappedLoginModal as any);
