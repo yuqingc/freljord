@@ -15,10 +15,13 @@ export const fakeLogin = () => ({
   type: 'FAKE_LOGIN',
 });
 
-export const login = (values: {name: string, password: string}) => (dispatch: any) => {
+export const login = (values: {username: string, password: string}) => (dispatch: any) => {
+  const params = new URLSearchParams();
+  params.append('username', values.username);
+  params.append('password', values.password);
   axios.post(
     `/ryze/login`,
-    values
+    params,
   ).then(res => {
     console.log(res)
   }).catch(err => {

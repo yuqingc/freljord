@@ -4,17 +4,32 @@ const path = require('path');
 const webpack = require('webpack');
 const middleware = require('webpack-dev-middleware');
 const express = require('express');
-var bodyParser = require('body-parser');
+const bodyParser = require('body-parser');
 // var multer = require('multer');
+const proxy = require('http-proxy-middleware');
 
 const devConfig = require('../webpack/webpack.dev');
 const compiler = webpack(devConfig);
 
 const app = express();
 
+const ryzeApiProxy = proxy(
+    {
+        target: 'http://localhost',
+        pathRewrite: {
+            '^/ryze': '/api',
+        },
+        router: {
+            'localhost:3000/ryze': 'http://localhost:8080',
+        }
+    }
+)
+
 const PORT = 3000;
 
 const isDev = false;
+
+app.use('/ryze', ryzeApiProxy);
 
 app.use(middleware(compiler, {
     publicPath: '/',
