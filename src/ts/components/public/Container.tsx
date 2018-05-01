@@ -4,6 +4,7 @@ import React from 'react';
 import { Layout } from 'antd';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { withRouter } from 'react-router';
 
 import HeaderBar from './HeaderBar';
 import SideMenu from './SideMenu';
@@ -62,4 +63,5 @@ const mapDispatchToProps = (dispatch: any) => (
   }
 );
 
-export default connect(mapStateToProps, mapDispatchToProps)(Container);
+// If you don't wrap Container with `withRouter`, router render will not work due to the connect function.
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Container) as any);
