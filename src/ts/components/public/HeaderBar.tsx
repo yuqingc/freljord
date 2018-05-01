@@ -28,7 +28,7 @@ class HeaderBar extends React.Component<any, {}> {
   public logout () {
     const { actions } = this.props;
     console.log('logout');
-    actions.clearUserInfo();
+    actions.logout();
   }
 
   public clickMenu (key: string) {

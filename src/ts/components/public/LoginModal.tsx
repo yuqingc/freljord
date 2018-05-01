@@ -1,7 +1,7 @@
 // Copyright 2018 Matt<mr.chenyuqing@live.com>
 
 import React from 'react';
-import { Modal, Form, Input, Icon, Button } from 'antd';
+import { Modal, Form, Input, Icon, Button, Alert } from 'antd';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
@@ -17,6 +17,7 @@ class LoginModal extends React.Component<any, {}> {
     const { resetFields } = this.props.form;
     resetFields();
     actions.toggleLoginModal(false);
+    actions.toggleLoginFailAlert(false);
   }
 
   public handleSubmit () {
@@ -25,26 +26,42 @@ class LoginModal extends React.Component<any, {}> {
     this.props.form.validateFields((err: any, values: any) => {
       if (!err) {
         console.log('Received values of form: ', values);
-        actions.login(values);
-        resetFields();
-        actions.toggleLoginModal(false);
+        actions.login(values, resetFields);
+        // resetFields();
+        // actions.toggleLoginModal(false);
       }
     });
   }
 
   public render () {
-    const { showLoginModal, actions } = this.props;
+    const {
+      showLoginModal,
+      actions,
+      isLoggingIn,
+      showLoginFailAlert,
+    } = this.props;
     const { getFieldDecorator } = this.props.form;
 
     return (
       <Modal
         title="Log in"
         visible={showLoginModal}
-        okText="Log in"
         onCancel={() => {this.handleCancel();}}
         onOk={() => {this.handleSubmit();}}
+        footer={[
+          <Button key="back" onClick={() => {this.handleCancel();}}>Cancel</Button>,
+          <Button key="submit" type="primary" loading={isLoggingIn} onClick={() => {this.handleSubmit();}}>
+            {isLoggingIn ? 'Logging in...' : 'Log in'}
+          </Button>,
+        ]}
       >
         <Form layout="vertical">
+          {
+            showLoginFailAlert &&
+            <div className="login-fail-alert">
+              <Alert message="Logging in failed!" type="error" showIcon />
+            </div>
+          }
           <FormItem>
           {getFieldDecorator('username', {
             rules: [
@@ -92,6 +109,8 @@ const WrappedLoginModal = Form.create()(LoginModal);
 const mapStateToProps = (state: IMtState) => (
   {
     showLoginModal: state.main.get('showLoginModal'),
+    isLoggingIn: state.main.get('isLoggingIn'),
+    showLoginFailAlert: state.main.get('showLoginFailAlert'),
   }
 );
 
