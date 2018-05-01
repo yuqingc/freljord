@@ -33,7 +33,7 @@ export const hasLoggedIn = (username: string) => ({
 export const toggleLoginFailAlert = (show: boolean) => ({
   type: 'TOGGLE_LOGIN_FAIL_ALERT',
   show,
-})
+});
 
 export const login = (
   values: {username: string, password: string},
