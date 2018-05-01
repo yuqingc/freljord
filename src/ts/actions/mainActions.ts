@@ -40,10 +40,6 @@ export const login = (
   cb: () => any
 ) => (dispatch: any) => {
   dispatch(toggleIsLoggingIn(true));
-  // const params = new URLSearchParams();
-  // TODO: optimize axios.post referring to npm docs
-  // params.append('username', values.username);
-  // params.append('password', values.password);
   createAxios().post(
     `/ryze/login`,
     formParamsFrom(values),
