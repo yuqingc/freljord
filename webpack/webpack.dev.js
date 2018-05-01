@@ -48,19 +48,32 @@ module.exports = {
 			{
 				test: /\.scss$/,
             use: extractSass.extract({
-                use: [{
+                // use style-loader in development
+                fallback: "style-loader",
+                use: [
+                  {
 										loader: "css-loader",
 										options: {
 											sourceMap: true
 										}
-                }, {
+                  },
+                  {
+                    loader: "postcss-loader",
+                    options: {
+                      path: './postcss.config.js',
+                      context: {
+                        env: 'development',
+                      },
+                      sourceMap: true,
+                    },
+                  },
+                  {
                     loader: "sass-loader",
 										options: {
 											sourceMap: true
 										}
-                }],
-                // use style-loader in development
-                fallback: "style-loader"
+                  }
+                ],
             })
       },
       {
