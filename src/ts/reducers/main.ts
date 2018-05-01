@@ -27,8 +27,6 @@ export default function home (state = initalState, action: IMainAction) {
             set('username', undefined);
         case 'TOGGLE_IS_LOGGING_IN':
             return state.set('isLoggingIn', action.isLoggingIn);
-        case 'FAKE_LOGIN':
-            return state.set('isLoggedIn', true);
         case 'HAS_LOGGED_IN':
             return state.set('isLoggedIn', true).
                 set('username', action.username);

@@ -2,11 +2,14 @@
 
 import React from 'react';
 import { Layout } from 'antd';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
 import HeaderBar from './HeaderBar';
 import SideMenu from './SideMenu';
 import FooterText from './FooterText';
 import LoginModal from './LoginModal';
+import * as mainActions from 'ts/actions/mainActions';
 
 const { Header, Footer, Sider, Content } = Layout;
 
@@ -18,6 +21,11 @@ class Container extends React.Component<any, IContainerState> {
   public state = {
     collapsed: false,
   };
+
+  public componentDidMount () {
+    const { actions } = this.props;
+    actions.checkTokenAtLaunch();
+  }
 
   public onCollapse = (collapsed: boolean) => {
     this.setState({collapsed});
@@ -46,4 +54,12 @@ class Container extends React.Component<any, IContainerState> {
   }
 }
 
-export default Container;
+const mapStateToProps = (state: any) => ({});
+
+const mapDispatchToProps = (dispatch: any) => (
+  {
+    actions: bindActionCreators(mainActions, dispatch),
+  }
+);
+
+export default connect(mapStateToProps, mapDispatchToProps)(Container);
