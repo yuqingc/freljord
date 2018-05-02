@@ -2,6 +2,7 @@
 
 import axios from 'axios';
 import qs from 'qs';
+import { message } from 'antd';
 
 export const createAxios = () => {
     const localToken = localStorage.getItem('token');
@@ -28,3 +29,9 @@ type FormParamsType = {
 };
 
 export const formParamsFrom = (obj: FormParamsType) => qs.stringify(obj);
+
+type showGlobalMessageKeyType = 'info' | 'success' | 'error' | 'warning';
+
+export const showGlobalMessage = (mode: showGlobalMessageKeyType, messageString: string) => {
+    message[mode](messageString);
+  };

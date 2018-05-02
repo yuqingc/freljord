@@ -30,8 +30,18 @@ export default function home (state = initalState, action: IMainAction) {
         case 'HAS_LOGGED_IN':
             return state.set('isLoggedIn', true).
                 set('username', action.username);
-        case 'TOGGLE_LOGIN_FAIL_ALERT':
-            return state.set('showLoginFailAlert', action.show);
+        case 'CANCEL_LOGIN':
+            return state.set('showLoginModal', false).
+                set('showLoginFailAlert', false);
+        case 'CLOSE_SUCCESSFUL_LOGIN':
+            return state.set('username', action.username).
+                set('isLoggedIn', true).
+                set('isLoggingIn', false).
+                set('showLoginFailAlert', false).
+                set('showLoginModal', false);
+        case 'ALERT_FAILED_LOGIN':
+            return state.set('isLoggingIn', false).
+                set('showLoginFailAlert', true);
         default:
             return state;
     }

@@ -3,13 +3,9 @@
 import _ from 'lodash';
 import { message } from 'antd';
 
-import { createAxios, formParamsFrom } from 'ts/utils/utils';
+import { createAxios, formParamsFrom, showGlobalMessage } from 'ts/utils/utils';
 
 type showGlobalMessageKeyType = 'info' | 'success' | 'error' | 'warning';
-
-export const showGlobalMessage = (mode: showGlobalMessageKeyType, messageString: string) => (dispatch: any) => {
-  message[mode](messageString);
-};
 
 export const toggleLoginModal = (show: boolean) => ({
   type: 'TOGGLE_lOGIN_MODAL',
@@ -30,9 +26,17 @@ export const hasLoggedIn = (username: string) => ({
   username,
 });
 
-export const toggleLoginFailAlert = (show: boolean) => ({
-  type: 'TOGGLE_LOGIN_FAIL_ALERT',
-  show,
+export const cancelLogin = () => ({
+  type: 'CANCEL_LOGIN',
+});
+
+export const closeSuccessfulLogin = (username: string) => ({
+  type: 'CLOSE_SUCCESSFUL_LOGIN',
+  username,
+});
+
+export const alertFailedLogin = () => ({
+  type: 'ALERT_FAILED_LOGIN',
 });
 
 // Too many dispatches. Unacceptable!!
@@ -50,17 +54,13 @@ export const login = (
     const token = _.get(res, 'data.access_token');
     localStorage.setItem('token', token);
     localStorage.setItem('username', username);
-    dispatch(hasLoggedIn(username));
-    dispatch(toggleIsLoggingIn(false));
-    dispatch(toggleLoginFailAlert(false));
-    dispatch(toggleLoginModal(false));
-    dispatch(showGlobalMessage('success', 'You have logged in successfully!'));
+    dispatch(closeSuccessfulLogin(username));
+    showGlobalMessage('success', 'You have logged in successfully!');
     cb();
   }).catch(err => {
     console.log('login err', err);
-    dispatch(toggleIsLoggingIn(false));
-    dispatch(toggleLoginFailAlert(true));
-    dispatch(showGlobalMessage('error', 'Logging in failed!'));
+    dispatch(alertFailedLogin());
+    showGlobalMessage('error', 'Logging in failed!');
   });
 };
 
@@ -68,7 +68,7 @@ export const logout = () => (dispatch: any) => {
   localStorage.removeItem('token');
   localStorage.removeItem('username');
   dispatch(clearUserInfo());
-  dispatch(showGlobalMessage('warning', 'You have logged out!'));
+  showGlobalMessage('warning', 'You have logged out!');
 };
 
 export const checkTokenAtLaunch = () => (dispatch: any) => {
@@ -80,7 +80,7 @@ export const checkTokenAtLaunch = () => (dispatch: any) => {
       const username = _.get(res, 'data.usr');
       dispatch(hasLoggedIn(username));
     }).catch(err => {
-      dispatch(showGlobalMessage('warning', 'Invalid or expired token. Please log in manually.'));
+      showGlobalMessage('warning', 'Invalid or expired token. Please log in manually.');
     });
   }
 };

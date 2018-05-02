@@ -16,8 +16,7 @@ class LoginModal extends React.Component<any, {}> {
     const { actions } = this.props;
     const { resetFields } = this.props.form;
     resetFields();
-    actions.toggleLoginModal(false);
-    actions.toggleLoginFailAlert(false);
+    actions.cancelLogin();
   }
 
   public handleSubmit () {
@@ -27,8 +26,6 @@ class LoginModal extends React.Component<any, {}> {
       if (!err) {
         console.log('Received values of form: ', values);
         actions.login(values, resetFields);
-        // resetFields();
-        // actions.toggleLoginModal(false);
       }
     });
   }
