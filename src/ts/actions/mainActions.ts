@@ -35,6 +35,7 @@ export const toggleLoginFailAlert = (show: boolean) => ({
   show,
 });
 
+// Too many dispatches. Unacceptable!!
 export const login = (
   values: {username: string, password: string},
   cb: () => any
