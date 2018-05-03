@@ -38,7 +38,9 @@ const globalProvide = new webpack.ProvidePlugin({
 });
 
 const globalDefinition = new webpack.DefinePlugin({
-  NODE_ENV: JSON.stringify('production'),
+  'process.env': {
+    NODE_ENV: JSON.stringify('production'),
+  }
 });
 
 module.exports = {

@@ -40,7 +40,9 @@ const globalProvide = new webpack.ProvidePlugin({
 
 // 坑比东西
 const globalDefinition = new webpack.DefinePlugin({
-  NODE_ENV: JSON.stringify('development'),
+  'process.env': {
+    NODE_ENV: JSON.stringify('development'),
+  }
 });
 
 module.exports = {

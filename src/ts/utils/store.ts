@@ -8,9 +8,9 @@ import reducer from 'ts/reducers';
 
 let store: any;
 
-declare const NODE_ENV: string;
+declare const process: any;
 
-if (NODE_ENV == 'development') {
+if (process.env.NODE_ENV == 'development') {
     store = createStore(
         reducer,
         applyMiddleware(thunk, logger),
