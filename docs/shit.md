@@ -12,7 +12,7 @@
 
 ### 3. Why global "React" does not work with webpack.ProvidePlugin?
 
-- You need to create a `d.ts` file that include this:
+- You need to create a `d.ts` file that includes this:
 ```ts
 import _React from 'react';
 
