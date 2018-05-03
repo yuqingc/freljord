@@ -3,21 +3,37 @@ Personal site powered by [Ryze](https://github.com/yuqingc/ryze)
 
 ---
 
-### Start
+### Quick start
 
-- For dev
+First and foremost, **[Ryze](https://github.com/yuqingc/ryze)** should be running in local
+
+Packages are installed with either [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/en/)
+
+- **For development**
+
+  Start a Node.js server with Webpack Middleware
 
 ```
 $ yarn run start
 ```
-This will start a Node.js server with Webpack Middleware
 
-- Build
+- **For production**
 
+1. Build & bundle everything ini the `/dist/` directory
 ```
 $ yarn run build
 ```
-This will bundle everything in the /dist/ directory
+
+2. Start the Node.js server
+```
+$ yarn run prod
+```
+
+### Deployment
+
+```
+// TODO: with Docker & Kubernetes
+```
 
 ### Docs
 - [blueprint](https://github.com/yuqingc/freljord/blob/master/docs/blueprint.md) is a brief plan of the entire project

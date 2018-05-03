@@ -13,6 +13,7 @@ const htmlPlugin = new HtmlWebpackPlugin({
   favicon: path.resolve(__dirname, '../src/images/favicon.ico')
 });
 
+// used for extracting css out of js files
 const extractSass = new ExtractTextPlugin({
     filename: 'styles/[name].[hash].css',
     disable: process.env.NODE_ENV === "development"
@@ -48,32 +49,32 @@ module.exports = {
 			{
 				test: /\.scss$/,
         use: extractSass.extract({
-            // use style-loader in development
-            fallback: "style-loader",
-            use: [
-              {
-                loader: "css-loader",
-                options: {
-                  sourceMap: true
-                }
-              },
-              {
-                loader: "postcss-loader",
-                options: {
-                  path: './postcss.config.js',
-                  context: {
-                    env: 'development',
-                  },
-                  sourceMap: true,
-                },
-              },
-              {
-                loader: "sass-loader",
-                options: {
-                  sourceMap: true
-                }
+          // use style-loader in development
+          fallback: "style-loader",
+          use: [
+            {
+              loader: "css-loader",
+              options: {
+                sourceMap: true
               }
-            ],
+            },
+            {
+              loader: "postcss-loader",
+              options: {
+                path: './postcss.config.js',
+                context: {
+                  env: 'development',
+                },
+                sourceMap: true,
+              },
+            },
+            {
+              loader: "sass-loader",
+              options: {
+                sourceMap: true
+              }
+            }
+          ],
         })
       },
       {

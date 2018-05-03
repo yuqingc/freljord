@@ -4,12 +4,8 @@ const path = require('path');
 const webpack = require('webpack');
 const middleware = require('webpack-dev-middleware');
 const express = require('express');
-const bodyParser = require('body-parser');
-// var multer = require('multer');
-const proxy = require('http-proxy-middleware');
 
-const devConfig = require('../webpack/webpack.dev');
-const compiler = webpack(devConfig);
+const proxy = require('http-proxy-middleware');
 
 const app = express();
 
@@ -27,49 +23,52 @@ const ryzeApiProxy = proxy(
 
 const PORT = 3000;
 
-const isDev = false;
-
 app.use('/ryze', ryzeApiProxy);
 
-app.use(middleware(compiler, {
-    publicPath: '/',
-    lazy: false,
-    watchOptions: {
-        aggregateTimeout: 300,
-        poll: 1000
-    }
-}));
+if (process.argv && process.argv[2] && process.argv[2] === 'dev') {
+    console.log('Development mode is applied.');
+    
+    const devConfig = require('../webpack/webpack.dev');
+    const compiler = webpack(devConfig);
 
-app.use(bodyParser.json()); // for parsing application/json
-app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
-// app.use(multer()); // for parsing multipart/form-data
-
-app.use('/ryze', function (req, res, next) {
-    console.log('baseurl', req.baseUrl, req.path, req.url, req.originalUrl);
-    console.log('body', req.body, req.method);
-    res.redirect(307, `http://localhost:8080/api${req.path}`)
-    res.end();
-})
-
-// https://github.com/jantimon/html-webpack-plugin/issues/145
-app.use('*', function (req, res, next) {
-    var filename = path.join(compiler.outputPath,'index.html');
-    compiler.outputFileSystem.readFile(filename, function(err, result){
-        if (err) {
-            console.log('ERR', err)
-            return next(err);
+    app.use(middleware(compiler, {
+        publicPath: '/',
+        lazy: false,
+        watchOptions: {
+            aggregateTimeout: 300,
+            poll: 1000
         }
-        res.set('content-type','text/html');
-        res.send(result);
-        next();
+    }));
+
+    // https://github.com/jantimon/html-webpack-plugin/issues/145
+    app.use('*', function (req, res, next) {
+        var filename = path.join(compiler.outputPath,'index.html');
+        compiler.outputFileSystem.readFile(filename, function(err, result){
+            if (err) {
+                console.log('ERR', err)
+                return next(err);
+            }
+            res.set('content-type','text/html');
+            res.send(result);
+            next();
+        });
     });
-});
-
-app.use(express.static(path.join(__dirname, "../dist")));
-
-// app.get('*', function (request, response){
-//     response.sendFile(path.resolve(__dirname, '../dist', 'index.html'))
-// });
+} else {
+    console.log('Production mode is applied.');
+    const distStaticOptions = {
+        dotfiles: 'ignore',
+        extensions: ['css', 'js'],
+        index: false,
+    };
+    app.use(express.static(path.join(__dirname, "../dist"), distStaticOptions));
+    app.get('/*', function(req, res, next) {
+        res.sendFile(path.join(__dirname, "../dist/index.html"), function(err) {
+            if(err) {
+                console.log('errr', err)
+            }
+        });
+    });
+}
 
 app.listen(PORT, () => {
     console.log(`Freljord is listening to port :${PORT}`);
