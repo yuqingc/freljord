@@ -1,7 +1,6 @@
 const path = require('path');
 
 const webpack = require('webpack');
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
@@ -11,11 +10,6 @@ const htmlPlugin = new HtmlWebpackPlugin({
   template: path.resolve(__dirname, '../src/index.html'),
   title: 'Freljord',
   favicon: path.resolve(__dirname, '../src/images/favicon.ico')
-});
-
-const extractSass = new ExtractTextPlugin({
-    filename: 'styles/[name].[hash].css',
-    disable: process.env.NODE_ENV === "development"
 });
 
 const forkTsChecker = new ForkTsCheckerWebpackPlugin({
@@ -34,7 +28,7 @@ const cleanDist = new CleanWebpackPlugin(['dist/*'], {
 });
 
 module.exports = {
-	mode: "development",
+	mode: "production",
   entry: './src/ts/index.tsx',
   module: {
     rules: [
@@ -47,34 +41,20 @@ module.exports = {
 			},
 			{
 				test: /\.scss$/,
-        use: extractSass.extract({
-            // use style-loader in development
-            fallback: "style-loader",
-            use: [
-              {
-                loader: "css-loader",
-                options: {
-                  sourceMap: true
-                }
-              },
-              {
-                loader: "postcss-loader",
-                options: {
-                  path: './postcss.config.js',
-                  context: {
-                    env: 'development',
-                  },
-                  sourceMap: true,
+        use: [
+          'style-loader',
+          'css-loader',
+          {
+            loader: 'postcss-loader',
+            options: {
+              path: './postcss.config.js',
+                context: {
+                env: 'production',
                 },
-              },
-              {
-                loader: "sass-loader",
-                options: {
-                  sourceMap: true
-                }
-              }
-            ],
-        })
+            }
+          },
+          'sass-loader',
+        ],
       },
       {
         test: /\.(png|jpe?g|gif|ico)$/,
@@ -93,7 +73,6 @@ module.exports = {
 	plugins: [
     cleanDist,
     htmlPlugin,
-    extractSass,
     forkTsChecker,
 ],
   // publicPath is essential, without which the page will fail on refreshing the browser 

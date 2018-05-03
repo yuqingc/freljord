@@ -6,8 +6,8 @@
   "author": "Matt <mr.chenyuqing@live.com>",
   "license": "MIT",
   "scripts": {
-    "build": "webpack --config webpack/webpack.dev.js",
-    "start": "node server/index.js"
+    "build": "webpack --config webpack/webpack.prod.js",
+    "start": "node server/index.js dev"
   },
   "devDependencies": {
     "clean-webpack-plugin": "^0.1.19",
