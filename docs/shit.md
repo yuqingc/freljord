@@ -24,6 +24,8 @@ declare global {
 
 ### 4. Why NODE_ENV is still `undefined` even if I use the `webpack.DefinePlugin`???
 
+https://github.com/webpack/webpack/issues/2427
+
 - This is really a trick!!
 - The DefinePlugin does not create a variable in your window or any global environment. It merely replace the text in your code???????!!!!!!
 - Crap!!!!
