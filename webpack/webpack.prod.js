@@ -33,6 +33,14 @@ const cleanDist = new CleanWebpackPlugin(['dist/*'], {
     verbose: true,
 });
 
+const globalProvide = new webpack.ProvidePlugin({
+  React: 'react',
+});
+
+const globalDefinition = new webpack.DefinePlugin({
+  NODE_ENV: JSON.stringify('production'),
+});
+
 module.exports = {
 	mode: "production",
   entry: './src/ts/index.tsx',
@@ -88,6 +96,8 @@ module.exports = {
     htmlPlugin,
     extractSass,
     forkTsChecker,
+    globalProvide,
+    globalDefinition,
 ],
   // publicPath is essential, without which the page will fail on refreshing the browser 
   output: {

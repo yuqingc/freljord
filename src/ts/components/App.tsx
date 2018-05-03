@@ -1,6 +1,5 @@
 // Copyright 2018 Matt<mr.chenyuqing@live.com>
 
-import React from 'react';
 import { Provider } from 'react-redux';
 
 import AppRouters from 'ts/components/public/AppRouters';

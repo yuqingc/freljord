@@ -1,6 +1,5 @@
 // Copyright 2018 Matt<mr.chenyuqing@live.com>
 
-import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import sidebarRouterConfig, { ISidebarRouter } from 'ts/utils/sidebarRouterConfig';

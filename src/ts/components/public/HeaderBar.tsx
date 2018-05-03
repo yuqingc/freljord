@@ -1,6 +1,5 @@
 // Copyright 2018 Matt<mr.chenyuqing@live.com>
 
-import React from 'react';
 import { Col, Row, Button, Icon, Tooltip, Menu, Dropdown } from 'antd';
 import { Link } from 'react-router-dom';
 import { bindActionCreators } from 'redux';

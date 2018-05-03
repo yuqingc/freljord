@@ -1,6 +1,5 @@
 // Copyright 2018 Matt<mr.chenyuqing@live.com>
 
-import React from 'react';
 import { Icon } from 'antd';
 
 import { COPYRIGHT_TEXT, ANTD_URL } from 'ts/utils/consts';

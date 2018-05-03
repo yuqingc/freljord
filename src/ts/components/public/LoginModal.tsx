@@ -1,6 +1,5 @@
 // Copyright 2018 Matt<mr.chenyuqing@live.com>
 
-import React from 'react';
 import { Modal, Form, Input, Icon, Button, Alert } from 'antd';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';

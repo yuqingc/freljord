@@ -6,9 +6,20 @@ import logger from 'redux-logger';
 
 import reducer from 'ts/reducers';
 
-const store = createStore(
-    reducer,
-    applyMiddleware(thunk, logger),
-);
+let store: any;
+
+declare const NODE_ENV: string;
+
+if (NODE_ENV == 'development') {
+    store = createStore(
+        reducer,
+        applyMiddleware(thunk, logger),
+    );
+} else {
+    store = createStore(
+        reducer,
+        applyMiddleware(thunk),
+    );
+}
 
 export default store;

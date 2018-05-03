@@ -1,6 +1,5 @@
 // Copyright 2018 Matt<mr.chenyuqing@live.com>
 
-import React from 'react';
 import { Icon, Menu } from 'antd';
 import { withRouter } from 'react-router';
 
