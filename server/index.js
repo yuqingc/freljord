@@ -9,9 +9,10 @@ const proxy = require('http-proxy-middleware');
 
 const app = express();
 
+// option.target has to be specified
 const ryzeApiProxy = proxy(
     {
-        target: 'http://localhost',
+        target: 'http://localhost:8080',
         pathRewrite: {
             '^/ryze': '/api',
         },
