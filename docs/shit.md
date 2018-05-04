@@ -1,4 +1,4 @@
-# May you never eat this bundle of shit
+# May you never be annoyed by this bundle of shit
 
 ### 1. Why does tsconfig.json NEVER WORK!!! (TS absolute importing path setting issue)
 
@@ -24,10 +24,10 @@ declare global {
 
 ### 4. Why NODE_ENV is still `undefined` even if I use the `webpack.DefinePlugin`???
 
-https://github.com/webpack/webpack/issues/2427
+Refer to https://github.com/webpack/webpack/issues/2427
 
 - This is really a trick!!
-- The DefinePlugin does not create a variable in your window or any global environment. It merely replace the text in your code???????!!!!!!
+- The DefinePlugin does not create a variable in your window or any global environment. It merely replaces the text in your code !!!!!!
 - Crap!!!!
 ```
 This is because DefinePlugin doesn't build any object - it just replaces all occurrences of process.env.NODE_ENV in code with the constant you provided. In short, this works like find-and-replace variable with value :)
