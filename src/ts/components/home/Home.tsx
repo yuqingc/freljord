@@ -18,7 +18,7 @@ class Home extends React.Component<any, {}> {
 
     return (
       <div className="home-container">
-       
+       xxx
       </div>
     );
   }
