@@ -2,3 +2,5 @@
 - caching https://webpack.js.org/guides/caching/
 
 - auto prefixer
+
+- Images should be moved to server
