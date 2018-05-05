@@ -81,7 +81,7 @@ const mapStateToProps = (state: IMtState) => ({
   isLoggedIn: state.main.get('isLoggedIn'),
 });
 
-// 使用了 withRouter 之后就出现菜单的 bug
-// 收起和展开的时候宽度是变了 但是文字和图标行为不正常
-export default withRouter(connect(mapStateToProps)(SideMenu) as any);
+// bug
+// fixed: https://github.com/ant-design/ant-design/issues/10380
+export default withRouter(connect(mapStateToProps, null,  null, { pure: false })(SideMenu) as any);
 // export default withRouter(SideMenu);

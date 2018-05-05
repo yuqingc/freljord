@@ -3,7 +3,43 @@
 class Technology extends React.Component<{}, {}> {
   public render () {
     return (
-      <div>Technology</div>
+      <div style={{color: '#fff'}}>
+        <p>TECH</p>
+        <p>TECH</p>
+        <p>TECH</p>
+        <p>TECH</p>
+        <p>TECH</p>
+        <p>TECH</p>
+        <p>TECH</p>
+        <p>TECH</p>
+        <p>TECH</p>
+        <p>TECH</p>
+        <p>TECH</p>
+        <p>TECH</p>
+        <p>TECH</p>
+        <p>TECH</p>
+        <p>TECH</p>
+        <p>TECH</p>
+        <p>TECH</p>
+        <p>TECH</p>
+        <p>TECH</p>
+        <p>TECH</p>
+        <p>TECH</p>
+        <p>TECH</p>
+        <p>TECH</p>
+        <p>TECH</p>
+        <p>TECH</p>
+        <p>TECH</p>
+        <p>TECH</p>
+        <p>TECH</p>
+        <p>TECH</p>
+        <p>TECH</p>
+        <p>TECH</p>
+        <p>TECH</p>
+        <p>TECH</p>
+        <p>TECH</p>
+        <p>TECH</p>
+      </div>
     );
   }
 }
