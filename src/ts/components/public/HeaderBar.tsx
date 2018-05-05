@@ -1,6 +1,14 @@
 // Copyright 2018 Matt<mr.chenyuqing@live.com>
 
-import { Col, Row, Button, Icon, Tooltip, Menu, Dropdown } from 'antd';
+import { Col,
+  Row,
+  Button,
+  Icon,
+  Tooltip,
+  Menu,
+  Dropdown,
+  Avatar,
+} from 'antd';
 import { Link } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
@@ -57,7 +65,7 @@ class HeaderBar extends React.Component<any, {}> {
       justify="space-between">
       <Col span={LEFT_PARTS_COL}>
         <Link to="/">
-          <h1>logo</h1>
+          <Avatar src={require('images/fly-square.jpg')}/>
         </Link>
       </Col>
       <Col span={RIGHT_PARTS_COL} className="mt-header-right">

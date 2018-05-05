@@ -17,10 +17,8 @@ class Home extends React.Component<any, {}> {
     const { name } = this.props;
 
     return (
-      <div>
-        <p>name:{name}</p>
-        <button onClick={() => this.changeName('Json')}>Json</button>
-        <button onClick={() => this.changeName('Matt')}>Matt</button>
+      <div className="home-container">
+       
       </div>
     );
   }

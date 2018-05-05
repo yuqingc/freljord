@@ -39,7 +39,6 @@ export const alertFailedLogin = () => ({
   type: 'ALERT_FAILED_LOGIN',
 });
 
-// Too many dispatches. Unacceptable!!
 export const login = (
   values: {username: string, password: string},
   cb: () => any

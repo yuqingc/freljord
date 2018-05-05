@@ -2,7 +2,9 @@
 
 import { Icon, Menu } from 'antd';
 import { withRouter } from 'react-router';
+import { connect } from 'react-redux';
 
+import { IMtState } from 'ts/reducers';
 import sidebarRouterConfig, { ISidebarRouter } from 'ts/utils/sidebarRouterConfig';
 
 const SubMenu = Menu.SubMenu;
@@ -21,7 +23,8 @@ class SideMenu extends React.Component<any, ISideMenuProps> {
 
   // tslint:disable-next-line:member-ordering
   public render () {
-    const isAdmin = true;
+    const { isLoggedIn } = this.props;
+    const isAdmin = isLoggedIn;  // For now
     const { location: { pathname } } = this.props;
 
     return (
@@ -74,4 +77,8 @@ class SideMenu extends React.Component<any, ISideMenuProps> {
   }
 }
 
-export default withRouter(SideMenu);
+const mapStateToProps = (state: IMtState) => ({
+  isLoggedIn: state.main.get('isLoggedIn'),
+});
+
+export default withRouter(connect(mapStateToProps)(SideMenu) as any);
