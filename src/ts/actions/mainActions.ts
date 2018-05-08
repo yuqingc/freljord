@@ -54,12 +54,12 @@ export const login = (
     localStorage.setItem('token', token);
     localStorage.setItem('username', username);
     dispatch(closeSuccessfulLogin(username));
-    showGlobalMessage('success', 'You have logged in successfully!');
+    showGlobalMessage('success', 'Logged in successfully!');
     cb();
   }).catch(err => {
     console.log('login err', err);
     dispatch(alertFailedLogin());
-    showGlobalMessage('error', 'Logging in failed!');
+    showGlobalMessage('error', 'Log in failed!');
   });
 };
 
@@ -67,7 +67,7 @@ export const logout = () => (dispatch: any) => {
   localStorage.removeItem('token');
   localStorage.removeItem('username');
   dispatch(clearUserInfo());
-  showGlobalMessage('warning', 'You have logged out!');
+  showGlobalMessage('warning', 'Logged out!');
 };
 
 export const checkTokenAtLaunch = () => (dispatch: any) => {

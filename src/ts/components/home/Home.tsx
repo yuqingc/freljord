@@ -3,10 +3,12 @@
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Icon, Tooltip, Carousel } from 'antd';
+import CopyToClipboard from 'react-copy-to-clipboard';
 
 import { IMtState } from 'ts/reducers';
 import * as homeActions from 'ts/actions/homeActions';
 import { MT_GITHUB_ADDR, MT_ZHIHU_ADDR, MT_EMAIL } from 'ts/utils/consts';
+import { showGlobalMessage } from 'ts/utils/utils';
 
 class Home extends React.Component<any, {}> {
 
@@ -27,8 +29,9 @@ class Home extends React.Component<any, {}> {
             slideArr.map(v => (
               <div
                 key={v}
+                className="inside-slide"
               >
-                <h3>{v}</h3>
+                <h2>{v}</h2>
               </div>
             ))
           }
@@ -52,11 +55,13 @@ class Home extends React.Component<any, {}> {
               </Tooltip>
           </div>
           <div className="icon-wrapper">
-            <Tooltip title={`mailto:${MT_EMAIL}`}>
-              <Icon
-                type="mail"
-                onClick={() => {window.location.href = `mailto:${MT_EMAIL}`;}}
-                />
+            <Tooltip title={`Click to copy: ${MT_EMAIL}`}>
+              <CopyToClipboard
+                text={MT_EMAIL}
+                onCopy={() => {showGlobalMessage('success', 'Copied!');}}
+              >
+                <Icon type="mail"/>
+                </CopyToClipboard>
               </Tooltip>
           </div>
         </div>

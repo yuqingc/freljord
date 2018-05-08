@@ -55,7 +55,7 @@ class LoginModal extends React.Component<any, {}> {
           {
             showLoginFailAlert &&
             <div className="login-fail-alert">
-              <Alert message="Logging in failed!" type="error" showIcon />
+              <Alert message="Log in failed!" type="error" showIcon />
             </div>
           }
           <FormItem>
