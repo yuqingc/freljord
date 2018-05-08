@@ -3,7 +3,7 @@
 class Technology extends React.Component<{}, {}> {
   public render () {
     return (
-      <div style={{color: '#fff'}}>
+      <div>
         <p>TECH</p>
         <p>TECH</p>
         <p>TECH</p>
