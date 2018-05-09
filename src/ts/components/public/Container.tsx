@@ -38,15 +38,16 @@ class Container extends React.Component<IContainerProps, IContainerState> {
 
   public render () {
     return (
-      <Layout>
+      <Layout className="mt-layout">
         <Sider
           collapsible
           collapsed={this.state.collapsed}
           onCollapse={this.onCollapse}
+          className="mt-left-layout"
         >
           <SideMenu/>
         </Sider>
-        <Layout className="mt-right-layout">
+        <Layout className="mt-right-layout" style={{marginLeft: this.state.collapsed ? 80 : 200}}>
           <Header className="mt-header">
             <HeaderBar/>
           </Header>
