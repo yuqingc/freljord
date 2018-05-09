@@ -61,9 +61,9 @@ if (process.argv && process.argv[2] && process.argv[2] === 'dev') {
         extensions: ['css', 'js'],
         index: false,
     };
-    app.use(express.static(path.join(__dirname, "../dist"), distStaticOptions));
+    app.use(express.static(path.join(__dirname, '../dist'), distStaticOptions));
     app.get('/*', function(req, res, next) {
-        res.sendFile(path.join(__dirname, "../dist/index.html"), function(err) {
+        res.sendFile(path.join(__dirname, '../dist/index.html'), function(err) {
             if(err) {
                 console.log('errr', err)
             }

@@ -1,7 +1,7 @@
 const path = require('path');
 
 const webpack = require('webpack');
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
@@ -16,7 +16,7 @@ const htmlPlugin = new HtmlWebpackPlugin({
 // used for extracting css out of js files
 const extractSass = new ExtractTextPlugin({
     filename: 'styles/[name].[hash].css',
-    disable: process.env.NODE_ENV === "development"
+    disable: process.env.NODE_ENV === 'development'
 });
 
 const forkTsChecker = new ForkTsCheckerWebpackPlugin({
@@ -46,7 +46,7 @@ const globalDefinition = new webpack.DefinePlugin({
 });
 
 module.exports = {
-	mode: "development",
+	mode: 'development',
   entry: './src/ts/index.tsx',
   module: {
     rules: [
@@ -61,16 +61,16 @@ module.exports = {
 				test: /\.scss$/,
         use: extractSass.extract({
           // use style-loader in development
-          fallback: "style-loader",
+          fallback: 'style-loader',
           use: [
             {
-              loader: "css-loader",
+              loader: 'css-loader',
               options: {
                 sourceMap: true
               }
             },
             {
-              loader: "postcss-loader",
+              loader: 'postcss-loader',
               options: {
                 config: {
                   path: path.resolve(__dirname, './postcss.config.js'),
@@ -82,7 +82,7 @@ module.exports = {
               },
             },
             {
-              loader: "sass-loader",
+              loader: 'sass-loader',
               options: {
                 sourceMap: true
               }
