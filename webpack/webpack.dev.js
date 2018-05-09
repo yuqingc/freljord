@@ -72,9 +72,11 @@ module.exports = {
             {
               loader: "postcss-loader",
               options: {
-                path: './postcss.config.js',
-                context: {
-                  env: 'development',
+                config: {
+                  path: path.resolve(__dirname, './postcss.config.js'),
+                  ctx: {
+                    env: 'production',
+                  },
                 },
                 sourceMap: true,
               },
