@@ -6,8 +6,6 @@ import ReactDOM from 'react-dom';
 
 import App from 'ts/components/App';
 
-declare const module: any;
-
 const render = (Component: any) => ReactDOM.render(
   <Component/>,
   document.getElementById('root') as HTMLElement,

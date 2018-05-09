@@ -11,10 +11,12 @@ const SubMenu = Menu.SubMenu;
 // const MenuItemGroup = Menu.ItemGroup;
 
 interface ISideMenuProps {
-  location: any,
+  location: any;
+  history: any;
+  isLoggedIn: boolean;
 }
 
-class SideMenu extends React.Component<any, ISideMenuProps> {
+class SideMenu extends React.Component<ISideMenuProps, {}> {
 
   private handleClick = (e: any) => {
     const { history } = this.props;

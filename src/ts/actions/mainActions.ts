@@ -3,7 +3,11 @@
 import _ from 'lodash';
 import { message } from 'antd';
 
-import { createAxios, formParamsFrom, showGlobalMessage } from 'ts/utils/utils';
+import {
+  createAxios,
+  formParamsFrom,
+  showGlobalMessage
+} from 'ts/utils/utils';
 
 type showGlobalMessageKeyType = 'info' | 'success' | 'error' | 'warning';
 

@@ -20,7 +20,13 @@ import * as mainActions from 'ts/actions/mainActions';
 const LEFT_PARTS_COL: number = 8;
 const RIGHT_PARTS_COL: number = 6;
 
-class HeaderBar extends React.Component<any, {}> {
+interface IHeaderBar {
+  actions: any;
+  username: string;
+  isLoggedIn: boolean;
+}
+
+class HeaderBar extends React.Component<IHeaderBar, {}> {
 
   public goToGithubRepo () {
     window.open(REPO_ADDR);

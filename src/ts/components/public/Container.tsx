@@ -13,11 +13,16 @@ import * as mainActions from 'ts/actions/mainActions';
 
 const { Header, Footer, Sider, Content } = Layout;
 
+interface IContainerProps {
+  children: React.ReactElement<any>[];
+  actions: any;
+}
+
 interface IContainerState {
   collapsed: boolean,
 }
 
-class Container extends React.Component<any, IContainerState> {
+class Container extends React.Component<IContainerProps, IContainerState> {
   public state = {
     collapsed: false,
   };

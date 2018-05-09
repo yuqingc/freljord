@@ -1,12 +1,12 @@
 // Copyright 2018 Matt<mr.chenyuqing@live.com>
 
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware, Store } from 'redux';
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
 
 import reducer from 'ts/reducers';
 
-let store: any;
+let store: Store;
 
 declare const process: any;
 
