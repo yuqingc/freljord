@@ -42,6 +42,19 @@ $ yarn run prod
 
 ## Deployment
 
+1. Build an image of docker
+```
+$ scripts/build-prod.sh
+```
+
+2. Push image to remote docker image registry
+
+```
+// TODO: Create a repository
+```
+
+3. Deploy with K8s
+
 ```
 // TODO: with Docker & Kubernetes
 ```
