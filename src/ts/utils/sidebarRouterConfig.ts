@@ -80,14 +80,14 @@ const sidebarRouterConfig: ISidebarRouter[] = [
 // absPath is the absolute path
 // absPath is used as key of side menu
 interface ISidebarRouter {
-    name: string;
-    path: string;
-    absPath: string;
-    exact?: boolean;
-    icon: string;
-    isEncrypted?: boolean;
-    component?: any,
-    children?: ISidebarRouter[]
+    readonly name: string;
+    readonly path: string;
+    readonly absPath: string;
+    readonly exact?: boolean;
+    readonly icon: string;
+    readonly isEncrypted?: boolean;
+    readonly component?: any;
+    readonly children?: ISidebarRouter[];
 }
 
 export default sidebarRouterConfig;

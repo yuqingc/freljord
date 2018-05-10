@@ -11,8 +11,8 @@ const reducer = combineReducers({
 });
 
 interface IMtState {
-    home: any,
-    main: any,
+    home: any;
+    main: any;
 }
 
 export default reducer;

@@ -5,8 +5,8 @@ import immutable from 'immutable';
 import { IHomeAction } from 'ts/actions';
 
 interface IHomeState {
-    name: string
-    age: number
+    name: string;
+    age: number;
 }
 
 const initalState: any = immutable.fromJS({
