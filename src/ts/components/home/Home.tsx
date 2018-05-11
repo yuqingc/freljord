@@ -39,20 +39,22 @@ class Home extends React.Component<any, {}> {
         </div>
         <div className="display-icons">
           <div className="icon-wrapper">
-            <Tooltip title="GitHub">
-            <Icon
-              type="github"
-              onClick={() => {window.open(MT_GITHUB_ADDR);}}
-              />
-            </Tooltip>
-          </div>
-          <div className="icon-wrapper">
-            <Tooltip title="Zhihu">
-              <Icon
-                type="zhihu"
-                onClick={() => {window.open(MT_ZHIHU_ADDR);}}
+            <a href={MT_GITHUB_ADDR} target="_blank">
+              <Tooltip title="GitHub">
+                <Icon
+                  type="github"
                 />
               </Tooltip>
+            </a>
+          </div>
+          <div className="icon-wrapper">
+            <a href={MT_ZHIHU_ADDR} target="_blank">
+              <Tooltip title="Zhihu">
+                <Icon
+                  type="zhihu"
+                />
+              </Tooltip>
+            </a>
           </div>
           <div className="icon-wrapper">
             <Tooltip title={`Click to copy: ${MT_EMAIL}`}>
