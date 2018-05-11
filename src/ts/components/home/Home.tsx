@@ -24,7 +24,7 @@ class Home extends React.Component<any, {}> {
     return (
       <div className="home-container">
         <div className="home-slides">
-          <Carousel autoplay>
+          <Carousel autoplay effect="fade">
           {
             slideArr.map(v => (
               <div
