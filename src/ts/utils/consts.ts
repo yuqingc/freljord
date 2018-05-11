@@ -1,6 +1,6 @@
 // Copyright 2018 Matt<mr.chenyuqing@live.com>
 
-export const MT_EMAIL = `mr.chenyuqing@live.com`;
+export const MT_EMAIL: string = `mr.chenyuqing@live.com`;
 
 export const COPYRIGHT_TEXT: string = `Copyright © Matt<mr.chenyuqing@live.com>`;
 
