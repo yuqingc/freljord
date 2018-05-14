@@ -30,7 +30,7 @@ $ yarn run start
 
 ### Make production
 
-1. Build & bundle everything ini the `/dist/` directory
+1. Build & bundle everything in the `/dist/` directory
 ```
 $ yarn run build
 ```
