@@ -70,3 +70,7 @@ $ scripts/build-prod.sh
 - [shit](https://github.com/yuqingc/freljord/blob/master/docs/shit.md) might offer you some advice which helps avoid annoying things while developing
 
 - [todos](https://github.com/yuqingc/freljord/blob/master/docs/todos)
+
+## Licenses
+
+- This project is under the [MIT](https://en.wikipedia.org/wiki/MIT_License) license. See [LICENSE](https://github.com/yuqingc/freljord/blob/master/LICENSE)
