@@ -20,7 +20,7 @@ Any developers of this project should follow these rules.
 
 ### Examples
 
-- Good
+- "Do"s
 
 ```js
 import React from 'react';
@@ -32,7 +32,7 @@ import { Home } from 'components/home';
 import NotFound from './NotFound';
 ```
 
-- Don't do this
+- "Don't"s
 
 ```js
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
