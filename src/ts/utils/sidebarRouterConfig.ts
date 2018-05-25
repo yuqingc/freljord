@@ -1,7 +1,7 @@
 // Copyright 2018 Matt<mr.chenyuqing@live.com>
 
 import { Home } from 'ts/components/home';
-import { Technology, Resume } from 'ts/components/blogs';
+import { Originals, Favorites } from 'ts/components/blogs';
 import { Books, Files } from 'ts/components/downloads';
 import { Messages } from 'ts/components/messages';
 import { Encrypted } from 'ts/components/encrypted';
@@ -23,18 +23,18 @@ const sidebarRouterConfig: ISidebarRouter[] = [
         icon: 'rocket',
         children: [
             {
-                name: 'Technology',
-                path: '/technology',
-                absPath: '/blogs/technology',
+                name: 'Originals',
+                path: '/originals',
+                absPath: '/blogs/originals',
                 icon: 'code-o',
-                component: Technology,
+                component: Originals,
             },
             {
-                name: 'Resume',
-                path: '/resume',
-                absPath: '/blogs/resume',
-                icon: 'contacts',
-                component: Resume,
+                name: 'Favorites',
+                path: '/favorites',
+                absPath: '/blogs/favorites',
+                icon: 'star-o',
+                component: Favorites,
             }
         ]
     },

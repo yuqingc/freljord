@@ -1,6 +1,6 @@
 // Copyright 2018 Matt<mr.chenyuqing@live.com>
 
-import Technology from './technology/Technology';
-import Resume from './resume/Resume';
+import Originals from './originals/Originals';
+import Favorites from './favorites/Favorites';
 
-export { Technology, Resume};
+export { Originals, Favorites};

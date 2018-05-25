@@ -7,6 +7,7 @@
 @import 'footer';
 @import 'loginModal';
 @import 'home';
+@import 'message';
 
 * {
     margin: 0;
@@ -16,4 +17,11 @@
 
 a {
     color: inherit;
+}
+
+// TODO: remove
+.temp-container {
+    width: 100%;
+    text-align: center;
+    line-height: 100px; 
 }

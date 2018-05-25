@@ -3,7 +3,7 @@
 class Books extends React.Component<{}, {}> {
   public render () {
     return (
-      <div>books</div>
+      <div className="temp-container">books</div>
     );
   }
 }

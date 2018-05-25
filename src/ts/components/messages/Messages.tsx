@@ -3,7 +3,7 @@
 class Messages extends React.Component<{}, {}> {
   public render () {
     return (
-      <div>Message</div>
+      <div className="msg">Coming soon...</div>
     );
   }
 }
