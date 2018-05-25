@@ -9,12 +9,12 @@ interface IHomeState {
     age: number;
 }
 
-const initalState: any = immutable.fromJS({
+const initalState = immutable.fromJS({
     name: 'Matt',
     age: 20,
 } as IHomeState);
 
-export default function home (state = initalState, action: IHomeAction) {
+export default function home (state: typeof initalState = initalState, action: IHomeAction) {
     switch (action.type) {
         case 'CHANGE_NAME':
             return state.set('name', action.name);

@@ -12,7 +12,7 @@ interface IMainState {
   showLoginFailAlert: boolean;
 }
 
-const initalState: any = immutable.fromJS({
+const initalState = immutable.fromJS({
    showLoginModal: false,
    username: undefined,
    isLoggingIn: false,
@@ -20,7 +20,7 @@ const initalState: any = immutable.fromJS({
    showLoginFailAlert:false,
 } as IMainState);
 
-export default function home (state = initalState, action: IMainAction) {
+export default function home (state: typeof initalState = initalState, action: IMainAction) {
     switch (action.type) {
         case 'TOGGLE_lOGIN_MODAL':
             return state.set('showLoginModal', action.show);
