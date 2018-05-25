@@ -12,7 +12,7 @@ Any developers of this project should follow these rules.
 
 - You don't have to order your importings by alphabet
 
-- Importing statements of external modules must go before any internal modules
+- Importing statements of external modules must go before all the internal modules
 
 - Absolute path relative to the baseUrl, defined by `tsconfig.json`,  is recommended
 
