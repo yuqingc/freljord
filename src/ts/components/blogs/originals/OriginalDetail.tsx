@@ -4,8 +4,6 @@ import ReactMarkdown from 'react-markdown';
 import * as _Prism from 'prismjs';
 
 import { Paper } from 'ts/components/public/common';
-import 'prismJs';
-import 'prismCss';
 
 interface IOriginalDetailProps {
   match: {

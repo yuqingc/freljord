@@ -47,6 +47,15 @@ const globalDefinition = new webpack.DefinePlugin({
 
 const htmlAddAssets = new AddAssetHtmlPlugin([
   {
+    filepath: path.resolve(__dirname, '../assets/js/prism.min.js'),
+    includeSourcemap: false,
+  },
+  {
+    filepath: path.resolve(__dirname, '../assets/css/prism.css'),
+    typeOfAsset: 'css',
+    includeSourcemap: false,
+  },
+  {
     filepath: path.resolve(__dirname, '../assets/css/github-markdown.css'),
     typeOfAsset: 'css',
     includeSourcemap: false,
@@ -106,10 +115,6 @@ module.exports = {
   resolve: {
     extensions: [ '.tsx', '.ts', '.js' ],
     plugins:[tsconfigPathResolver],
-    alias: {
-      prismJs: path.resolve(__dirname, '../assets/js/prism.min.js'),
-      prismCss: path.resolve(__dirname, '../assets/css/prism.css')
-    }
 	},
 	plugins: [
     cleanDist,
