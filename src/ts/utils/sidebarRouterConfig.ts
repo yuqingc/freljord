@@ -1,7 +1,7 @@
 // Copyright 2018 Matt<mr.chenyuqing@live.com>
 
 import { Home } from 'ts/components/home';
-import { Originals, Favorites } from 'ts/components/blogs';
+import { Originals, OriginalDetail, Favorites } from 'ts/components/blogs';
 import { Books, Files } from 'ts/components/downloads';
 import { Messages } from 'ts/components/messages';
 import { Encrypted } from 'ts/components/encrypted';
@@ -26,8 +26,18 @@ const sidebarRouterConfig: ISidebarRouter[] = [
                 name: 'Originals',
                 path: '/originals',
                 absPath: '/blogs/originals',
+                exact: true,
                 icon: 'code-o',
                 component: Originals,
+                children: [
+                    {
+                        name: 'Original Ariticle',
+                        path: '/detail/:id',
+                        absPath: '/blogs/originals/detail/:id',
+                        icon: '',
+                        component: OriginalDetail,
+                    }
+                ]
             },
             {
                 name: 'Favorites',
@@ -79,16 +89,24 @@ const sidebarRouterConfig: ISidebarRouter[] = [
 
 // absPath is the absolute path
 // absPath is used as key of side menu
-interface ISidebarRouter {
+interface ISidebarRouterBasics {
     readonly name: string;
     readonly path: string;
     readonly absPath: string;
     readonly exact?: boolean;
     readonly icon: string;
     readonly isEncrypted?: boolean;
-    readonly component?: any;
-    readonly children?: ISidebarRouter[];
 }
 
+interface ISidebarRouterWithComponent extends ISidebarRouterBasics {
+    readonly component: any;
+}
+
+interface ISidebarRouterWithChildren extends ISidebarRouterBasics {
+    readonly children: ISidebarRouter[];
+}
+
+type ISidebarRouter = ISidebarRouterWithComponent | ISidebarRouterWithChildren | (ISidebarRouterWithComponent & ISidebarRouterWithChildren);
+
 export default sidebarRouterConfig;
-export { ISidebarRouter };
+export { ISidebarRouter, ISidebarRouterWithComponent, ISidebarRouterWithChildren };

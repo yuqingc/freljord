@@ -2,12 +2,15 @@
 
 @import '~antd/dist/antd.css';
 
-@import 'headerBar';
-@import 'container';
-@import 'footer';
-@import 'loginModal';
-@import 'home';
-@import 'message';
+@import 'public.container';
+@import 'public.footer';
+@import 'public.headerBar';
+@import 'public.loginModal';
+
+@import 'common.paper';
+
+@import 'content.home';
+@import 'content.message';
 
 * {
     margin: 0;

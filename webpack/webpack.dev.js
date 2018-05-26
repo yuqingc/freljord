@@ -6,6 +6,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin');
 
 const htmlPlugin = new HtmlWebpackPlugin({
   template: path.resolve(__dirname, '../src/index.html'),
@@ -45,6 +46,14 @@ const globalDefinition = new webpack.DefinePlugin({
   }
 });
 
+const htmlAddAssets = new AddAssetHtmlPlugin([
+  {
+    filepath: path.resolve(__dirname, '../assets/css/github-markdown.css'),
+    typeOfAsset: 'css',
+    includeSourcemap: false,
+  }
+]);
+
 module.exports = {
 	mode: 'development',
   entry: './src/ts/index.tsx',
@@ -58,7 +67,7 @@ module.exports = {
         exclude: /node_modules/
 			},
 			{
-				test: /\.scss$/,
+				test: /\.s?css$/,
         use: extractSass.extract({
           // use style-loader in development
           fallback: 'style-loader',
@@ -102,11 +111,16 @@ module.exports = {
   },
   resolve: {
     extensions: [ '.tsx', '.ts', '.js' ],
-    plugins:[tsconfigPathResolver]
+    plugins:[tsconfigPathResolver],
+    alias: {
+      prismJs: path.resolve(__dirname, '../assets/js/prism.js'),
+      prismCss: path.resolve(__dirname, '../assets/css/prism.css')
+    }
 	},
 	plugins: [
     cleanDist,
     htmlPlugin,
+    htmlAddAssets,
     extractSass,
     forkTsChecker,
     globalProvide,

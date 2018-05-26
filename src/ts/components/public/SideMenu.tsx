@@ -5,7 +5,12 @@ import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
 
 import { IMtState } from 'ts/reducers';
-import sidebarRouterConfig, { ISidebarRouter } from 'ts/utils/sidebarRouterConfig';
+import sidebarRouterConfig,
+{
+  ISidebarRouter,
+  ISidebarRouterWithChildren,
+  ISidebarRouterWithComponent,
+} from 'ts/utils/sidebarRouterConfig';
 
 const SubMenu = Menu.SubMenu;
 // const MenuItemGroup = Menu.ItemGroup;
@@ -42,14 +47,14 @@ class SideMenu extends React.Component<ISideMenuProps, {}> {
           // If the router is encrypted, whether or not its children are encrypted, is is not rendered.
           // An admin can render all parts.
           if (v.isEncrypted && !isAdmin) { return; }
-          if (v.children) {
+          if ((v as ISidebarRouterWithChildren).children) {
             return (
               <SubMenu
                 key={v.name}
                 title={<span><Icon type={v.icon} /><span>{v.name}</span></span>}
               >
                 {
-                  v.children.map((child) => {
+                  (v as ISidebarRouterWithChildren).children.map((child) => {
                     if (!child.isEncrypted || isAdmin) {
                       return (
                         <Menu.Item key={child.absPath}>

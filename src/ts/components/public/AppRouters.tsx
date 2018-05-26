@@ -3,7 +3,12 @@
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import sidebarRouterConfig, { ISidebarRouter } from 'ts/utils/sidebarRouterConfig';
+import sidebarRouterConfig,
+  {
+    ISidebarRouter,
+    ISidebarRouterWithComponent,
+    ISidebarRouterWithChildren
+  } from 'ts/utils/sidebarRouterConfig';
 import Container from './Container';
 import { Home } from 'ts/components/home';
 import NotFound from './NotFound';
@@ -25,17 +30,20 @@ class AppRouters extends React.Component<IAppRoutersProps, {}> {
     const resultRoutes: any = [];
     (function go (innerConfigs: ISidebarRouter[], parentPath: string): void {
       for (const v of innerConfigs) {
-        if (v.children && (!v.isEncrypted || isAdmin)) {
-          go(v.children, v.path);
-        } else if (!v.isEncrypted || isAdmin) {
-          resultRoutes.push(
-            <Route
-              key={v.name}
-              path={parentPath + v.path}
-              exact={v.exact}
-              component={v.component}
-            />
-          );
+        if (!v.isEncrypted || isAdmin) {
+          if ((v as ISidebarRouterWithComponent).component) {
+            resultRoutes.push(
+              <Route
+                key={v.name}
+                path={parentPath + v.path}
+                exact={v.exact}
+                component={(v as ISidebarRouterWithComponent).component}
+              />
+            );
+          }
+          if ((v as ISidebarRouterWithChildren).children) {
+            go((v as ISidebarRouterWithChildren).children, parentPath + v.path);
+          }
         }
       }
     })(configs, '');
