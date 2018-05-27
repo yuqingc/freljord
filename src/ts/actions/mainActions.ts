@@ -87,3 +87,8 @@ export const checkTokenAtLaunch = () => (dispatch: any) => {
     });
   }
 };
+
+export const toggleBackButtonInHeader = (show: boolean) => ({
+  type: 'TOGGLE_BACK_BUTTON_IN_HEADER',
+  show,
+});

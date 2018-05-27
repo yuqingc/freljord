@@ -10,6 +10,7 @@ interface IMainState {
   isLoggingIn: boolean;
   isLoggedIn: boolean;
   showLoginFailAlert: boolean;
+  showBackButtonInHeader: boolean;
 }
 
 const initalState = immutable.fromJS({
@@ -17,7 +18,8 @@ const initalState = immutable.fromJS({
    username: undefined,
    isLoggingIn: false,
    isLoggedIn: false,
-   showLoginFailAlert:false,
+   showLoginFailAlert: false,
+   showBackButtonInHeader: false,
 } as IMainState);
 
 export default function home (state: typeof initalState = initalState, action: IMainAction) {
@@ -44,6 +46,8 @@ export default function home (state: typeof initalState = initalState, action: I
         case 'ALERT_FAILED_LOGIN':
             return state.set('isLoggingIn', false).
                 set('showLoginFailAlert', true);
+        case 'TOGGLE_BACK_BUTTON_IN_HEADER':
+            return state.set('showBackButtonInHeader', action.show);
         default:
             return state;
     }

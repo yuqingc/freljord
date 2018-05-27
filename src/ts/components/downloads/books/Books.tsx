@@ -1,9 +1,11 @@
 // Copyright 2018 Matt<mr.chenyuqing@live.com>
 
+import { Paper } from 'ts/components/public/common';
+
 class Books extends React.Component<{}, {}> {
   public render () {
     return (
-      <div className="temp-container">books</div>
+      <Paper>books</Paper>
     );
   }
 }

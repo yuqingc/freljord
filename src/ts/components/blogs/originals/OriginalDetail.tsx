@@ -2,11 +2,12 @@
 
 import ReactMarkdown from 'react-markdown';
 import * as _Prism from 'prismjs';
+import { BackTop } from 'antd';
 
-import { Paper } from 'ts/components/public/common';
+import { Paper, showBackButtonInHeader } from 'ts/components/public/common';
 
 interface IOriginalDetailProps {
-  match: {
+  match?: {
     params: {
       id: string
     };
@@ -91,20 +92,20 @@ class OriginalDetail extends React.Component<IOriginalDetailProps, {}> {
 
   public componentDidMount () {
     const { match } = this.props;
-    console.log('mount', match.params.id);
+    console.log('match', match);
     Prism.highlightAll();
   }
 
   public render () {
     return (
       <Paper>
-        <h1>{this.props.match.params.id}</h1>
         <ReactMarkdown
           className="markdown-body"
           source={fakeArticle}/>
+          <BackTop/>
       </Paper>
     );
   }
 }
 
-export default OriginalDetail;
+export default showBackButtonInHeader(OriginalDetail);
