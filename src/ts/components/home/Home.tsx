@@ -12,11 +12,6 @@ import { showGlobalMessage } from 'ts/utils/utils';
 
 class Home extends React.Component<any, {}> {
 
-  changeName (name: string) {
-    const { actions } = this.props;
-    actions.changeName(name);
-  }
-
   public render () {
     const { name } = this.props;
     const slideArr = ['1', `2`, `3`, `4`];

@@ -11,14 +11,14 @@ const FormItem  = Form.Item;
 
 class LoginModal extends React.Component<any, {}> {
 
-  public handleCancel () {
+  private handleCancel = () => {
     const { actions } = this.props;
     const { resetFields } = this.props.form;
     resetFields();
     actions.cancelLogin();
   }
 
-  public handleSubmit () {
+  private handleSubmit = () => {
     const { actions } = this.props;
     const { resetFields } = this.props.form;
     this.props.form.validateFields((err: any, values: any) => {
@@ -42,10 +42,10 @@ class LoginModal extends React.Component<any, {}> {
       <Modal
         title="Log in"
         visible={showLoginModal}
-        onCancel={() => {this.handleCancel();}}
-        onOk={() => {this.handleSubmit();}}
+        onCancel={this.handleCancel}
+        onOk={this.handleSubmit}
         footer={[
-          <Button key="back" onClick={() => {this.handleCancel();}}>Cancel</Button>,
+          <Button key="back" onClick={this.handleCancel}>Cancel</Button>,
           <Button key="submit" type="primary" loading={isLoggingIn} onClick={() => {this.handleSubmit();}}>
             {isLoggingIn ? 'Logging in...' : 'Log in'}
           </Button>,

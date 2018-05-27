@@ -32,7 +32,7 @@ class Container extends React.Component<IContainerProps, IContainerState> {
     actions.checkTokenAtLaunch();
   }
 
-  public onCollapse = (collapsed: boolean) => {
+  private onCollapse = (collapsed: boolean) => {
     this.setState({collapsed});
   }
 
