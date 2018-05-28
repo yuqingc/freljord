@@ -7,7 +7,6 @@ import { Col,
   Tooltip,
   Menu,
   Dropdown,
-  Avatar,
 } from 'antd';
 import { Link } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
@@ -74,11 +73,16 @@ class HeaderBar extends React.Component<IHeaderBarProps, {}> {
       justify="space-between">
       <Col span={LEFT_PARTS_COL} className="mt-header-left">
         <Link to="/">
-          <Avatar src={require('images/yuqingc.png')}/>
+          <Button shape="circle" icon="home"/>
         </Link>
         {
           showBackButtonInHeader &&
-          <Button icon="rollback" onClick={() => history.goBack()}>Back</Button>
+          <Button
+            shape="circle"
+            icon="rollback"
+            onClick={() => history.goBack()}
+            className="back-btn"
+          />
         }
       </Col>
       <Col span={RIGHT_PARTS_COL} className="mt-header-right">

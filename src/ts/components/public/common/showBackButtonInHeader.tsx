@@ -8,26 +8,25 @@ import * as mainActions from 'ts/actions/mainActions';
 
 interface IShowBackProps {
   actions?: any;
-  component: any;
 }
 
 // HOC
 // show back button on entering and disappear on exiting
-const showBackButtonInHeader = (WrappedComponent: any) => {
+const showBackButtonInHeader = (WrappedComponent: React.ComponentClass) => {
 
   class ShowBackInHeader extends React.Component<IShowBackProps, {}> {
 
-    componentDidMount () {
+    public componentDidMount () {
       const { actions } = this.props;
       actions.toggleBackButtonInHeader(true);
     }
 
-    componentWillUnmount () {
+    public componentWillUnmount () {
       const { actions } = this.props;
       actions.toggleBackButtonInHeader(false);
     }
 
-    render () {
+    public render () {
       return <WrappedComponent {...this.props}/>;
     }
   }

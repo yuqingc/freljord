@@ -8,7 +8,9 @@
     .mt-header-left {
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        .back-btn {
+            margin-left: 16px;
+        }
     }
     .mt-header-right {
         display: flex;
