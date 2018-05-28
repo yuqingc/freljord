@@ -8,6 +8,7 @@
 @import 'public.loginModal';
 
 @import 'common.paper';
+@import 'common.markdownBox';
 
 @import 'content.home';
 @import 'content.message';
@@ -20,11 +21,4 @@
 
 a {
     color: inherit;
-}
-
-// TODO: remove
-.temp-container {
-    width: 100%;
-    text-align: center;
-    line-height: 100px; 
 }

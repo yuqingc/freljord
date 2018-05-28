@@ -3,7 +3,7 @@
 class Favorites extends React.Component<{}, {}> {
   public render () {
     return (
-      <div className="temp-container">Favorites</div>
+      <div>Favorites</div>
     );
   }
 }

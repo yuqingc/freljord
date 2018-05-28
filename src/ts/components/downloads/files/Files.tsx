@@ -3,7 +3,7 @@
 class Files extends React.Component<{}, {}> {
   public render () {
     return (
-      <div className="temp-container">Files</div>
+      <div>Files</div>
     );
   }
 }

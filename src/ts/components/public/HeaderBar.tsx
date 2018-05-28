@@ -72,17 +72,21 @@ class HeaderBar extends React.Component<IHeaderBarProps, {}> {
       type="flex"
       justify="space-between">
       <Col span={LEFT_PARTS_COL} className="mt-header-left">
-        <Link to="/">
-          <Button shape="circle" icon="home"/>
-        </Link>
+        <Tooltip placement="bottom" title="Home">
+          <Link to="/">
+            <Button shape="circle" icon="home"/>
+          </Link>
+        </Tooltip>
         {
           showBackButtonInHeader &&
-          <Button
-            shape="circle"
-            icon="rollback"
-            onClick={() => history.goBack()}
-            className="back-btn"
-          />
+          <Tooltip placement="bottom" title="Go back">
+            <Button
+              shape="circle"
+              icon="rollback"
+              onClick={() => history.goBack()}
+              className="back-btn"
+            />
+          </Tooltip>
         }
       </Col>
       <Col span={RIGHT_PARTS_COL} className="mt-header-right">

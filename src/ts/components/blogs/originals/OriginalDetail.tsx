@@ -4,7 +4,11 @@ import ReactMarkdown from 'react-markdown';
 import * as _Prism from 'prismjs';
 import { BackTop } from 'antd';
 
-import { Paper, showBackButtonInHeader } from 'ts/components/public/common';
+import {
+  Paper,
+  showBackButtonInHeader,
+  MarkdownBox
+} from 'ts/components/public/common';
 
 interface IOriginalDetailProps {
   match?: {
@@ -99,10 +103,8 @@ class OriginalDetail extends React.Component<IOriginalDetailProps, {}> {
   public render () {
     return (
       <Paper>
-        <ReactMarkdown
-          className="markdown-body"
-          source={fakeArticle}/>
-          <BackTop/>
+        <MarkdownBox source={fakeArticle}/>
+        <BackTop/>
       </Paper>
     );
   }
