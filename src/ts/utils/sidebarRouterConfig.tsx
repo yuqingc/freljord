@@ -1,10 +1,32 @@
 // Copyright 2018 Matt<mr.chenyuqing@live.com>
 
-import { Home } from 'ts/components/home';
-import { Originals, OriginalDetail, Favorites } from 'ts/components/blogs';
-import { Books, Files } from 'ts/components/downloads';
-import { Messages } from 'ts/components/messages';
-import { Encrypted } from 'ts/components/encrypted';
+import { dynamicComponentFromPath } from 'ts/utils/DynamicImport';
+
+// import { Home } from 'ts/components/home';
+// import { Originals, OriginalDetail, Favorites } from 'ts/components/blogs';
+// import { Books, Files } from 'ts/components/downloads';
+// import Messages from 'ts/components/messages/Messages';
+// import { Encrypted } from 'ts/components/encrypted';
+
+const Home = dynamicComponentFromPath(import('ts/components/home/Home'));
+const Originals = dynamicComponentFromPath(import('ts/components/blogs/originals/Originals'));
+const OriginalDetail = dynamicComponentFromPath(import('ts/components/blogs/originals/OriginalDetail'));
+const Favorites = dynamicComponentFromPath(import('ts/components/blogs/favorites/Favorites'));
+
+const Books = dynamicComponentFromPath(import('ts/components/downloads/books/Books'));
+const Files = dynamicComponentFromPath(import('ts/components/downloads/files/Files'));
+
+const Messages = dynamicComponentFromPath(import('ts/components/messages/Messages'));
+
+const Encrypted = dynamicComponentFromPath(import('ts/components/encrypted/Encrypted'));
+
+// const Home = (props:any) => (
+//     <DynamicImport load={() => import('ts/components/home/Home')}>
+//       {(Component) => Component === null
+//         ? <p>Loading</p>
+//         : <Component {...props} />}
+//     </DynamicImport>
+//   );
 
 // You can add router configs recursively but only the two most outer levels of the hierarchy are rendered in side menu.
 const sidebarRouterConfig: ISidebarRouter[] = [

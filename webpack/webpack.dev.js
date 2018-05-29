@@ -138,12 +138,13 @@ module.exports = {
     forkTsChecker,
     globalProvide,
     globalDefinition,
-    hardSourceWebpackPlugin,
+    // hardSourceWebpackPlugin,
 ],
   // publicPath is essential, without which the page will fail on refreshing the browser 
   output: {
-    filename: 'bundle.js',
+    filename: '[name].bundle.js',
     path: path.resolve(__dirname, '../dist/'),
+    chunkFilename: '[name].bundle.js',
     publicPath: '/'
   }
 };
