@@ -56,6 +56,7 @@
     "skipLibCheck": true                  /* Skip type checking of all declaration files (*.d.ts). */
   },
   "exclude": [
+    "assets",
     "node_modules",
     "dist",
     "server",
@@ -68,5 +69,10 @@
   ],
   "types": [
     "typePatches"
-  ]
+  ],
+
+  "awesomeTypescriptLoaderOptions": {
+    "useCache": true,
+    "forceIsolatedModules": true
+  }
 }
