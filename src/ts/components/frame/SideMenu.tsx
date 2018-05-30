@@ -5,15 +5,69 @@ import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
 
 import { IMtState } from 'ts/reducers';
-import sidebarRouterConfig,
-{
-  ISidebarRouter,
-  ISidebarRouterWithChildren,
-  ISidebarRouterWithComponent,
-} from 'ts/utils/sidebarRouterConfig';
 
 const SubMenu = Menu.SubMenu;
-// const MenuItemGroup = Menu.ItemGroup;
+
+interface ISideMenuConfig {
+  name: string;
+  path: string;
+  icon: string;
+  children?: ISideMenuConfig[];
+  isEncrypted?: boolean,
+}
+
+const SideMenuConfig: ISideMenuConfig[] = [
+  {
+    name: 'Home',
+    path: '/',
+    icon: 'home',
+  },
+  {
+    name: 'Blogs',
+    path: '/blogs',
+    icon: 'rocket',
+    children: [
+      {
+        name: 'Originals',
+        path: '/blogs/originals',
+        icon: 'code-o',
+      },
+      {
+        name: 'Favorites',
+        path: '/blogs/favorites',
+        icon: 'star-o',
+      }
+    ]
+  },
+  {
+    name: 'Downloads',
+    path: '/downloads',
+    icon: 'download',
+    children: [
+      {
+        name: 'Books',
+        path: '/downloads/books',
+        icon: 'book',
+      },
+      {
+        name: 'Files',
+        path: '/downloads/files',
+        icon: 'folder',
+      }
+    ]
+  },
+  {
+    name: 'Messages',
+    path: '/messages',
+    icon: 'message',
+  },
+  {
+    name: 'Encrypted',
+    path: '/encrypted',
+    icon: 'lock',
+    isEncrypted: true,
+  },
+];
 
 interface ISideMenuProps {
   location: any;
@@ -43,21 +97,26 @@ class SideMenu extends React.Component<ISideMenuProps, {}> {
         selectedKeys={[pathname]}
       >
       {
-        sidebarRouterConfig.map((v: ISidebarRouter) => {
+        SideMenuConfig.map((v) => {
           // If the router is encrypted, whether or not its children are encrypted, is is not rendered.
           // An admin can render all parts.
           if (v.isEncrypted && !isAdmin) { return; }
-          if ((v as ISidebarRouterWithChildren).children) {
+          if (v.children) {
             return (
               <SubMenu
                 key={v.name}
-                title={<span><Icon type={v.icon} /><span>{v.name}</span></span>}
+                title={
+                  <span>
+                    <Icon type={v.icon} />
+                    <span>{v.name}</span>
+                  </span>
+                }
               >
                 {
-                  (v as ISidebarRouterWithChildren).children.map((child) => {
+                  v.children.map((child) => {
                     if (!child.isEncrypted || isAdmin) {
                       return (
-                        <Menu.Item key={child.absPath}>
+                        <Menu.Item key={child.path}>
                           <Icon type={child.icon} />
                           <span>{child.name}</span>
                         </Menu.Item>
@@ -71,7 +130,7 @@ class SideMenu extends React.Component<ISideMenuProps, {}> {
 
           return (
             <Menu.Item
-              key={v.absPath}
+              key={v.path}
             >
               <Icon type={v.icon} />
               <span>{v.name}</span>

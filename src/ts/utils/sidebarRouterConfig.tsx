@@ -1,5 +1,10 @@
 // Copyright 2018 Matt<mr.chenyuqing@live.com>
 
+// This file is deprecated and will be deleted in the future
+// **Do not** add any configs in this file
+// Config side menu items in `ts/components/frame/SideMenu.tsx`
+// Config routes in `ts/routes`
+
 import importAsynchronously from 'ts/utils/dynamicImport';
 
 const Home = importAsynchronously(() => import('ts/components/contents/home/Home'));
