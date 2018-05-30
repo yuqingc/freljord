@@ -4,3 +4,4 @@
 !READ.md
 node_modules
 .vscode
+.awcache/
