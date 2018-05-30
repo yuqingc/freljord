@@ -6,6 +6,7 @@ import { IMtRoute } from './index';
 const Originals = importAsynchronously(() => import('ts/components/contents/blogs/originals/Originals'));
 const OriginalDetail = importAsynchronously(() => import('ts/components/contents/blogs/originals/OriginalDetail'));
 const Favorites = importAsynchronously(() => import('ts/components/contents/blogs/favorites/Favorites'));
+const EditBlog = importAsynchronously(() => import('ts/components/contents/blogs/EditBlog'));
 
 const blogsRoutes: IMtRoute[] = [
   {
@@ -23,6 +24,19 @@ const blogsRoutes: IMtRoute[] = [
     name: 'Favorites',
     path: '/blogs/favorites',
     component: Favorites,
+    exact: true,
+  },
+  {
+    name: 'Create Blog',
+    path: '/blogs/:type(originals|favorites)/create',
+    component: EditBlog,
+    isEncrypted: true,
+  },
+  {
+    name: 'Edit Blog',
+    path: '/blogs/:type(originals|favorites)/modify/:id',
+    component: EditBlog,
+    isEncrypted: true,
   }
 ];
 

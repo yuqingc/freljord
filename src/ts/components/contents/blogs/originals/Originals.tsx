@@ -1,10 +1,13 @@
 // Copyright 2018 Matt<mr.chenyuqing@live.com>
 
-import ReactMarkdown from 'react-markdown';
-import { List } from 'antd';
+import { List, Button } from 'antd';
 import { Link } from 'react-router-dom';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 
 import { Paper } from 'ts/components/public';
+import { IMtState } from 'ts/reducers';
+import * as blogsActions from 'ts/actions/blogsActions'
 
 const data = [
   {
@@ -25,10 +28,21 @@ const data = [
   },
 ];
 
-class Originals extends React.Component<{}, {}> {
+interface IOrigninalProps {
+  actions: typeof blogsActions;
+  isLoggedIn: boolean;
+}
+
+class Originals extends React.Component<IOrigninalProps, {}> {
   public render () {
+    const { isLoggedIn } = this.props;
+
     return (
       <Paper>
+        {
+          isLoggedIn &&
+          <Link to="/blogs/originals/create"><Button type="primary">New Original Article</Button></Link>
+        }
         <List
           itemLayout="horizontal"
           dataSource={data}
@@ -46,4 +60,16 @@ class Originals extends React.Component<{}, {}> {
   }
 }
 
-export default Originals;
+const mapStateToProps = (state: IMtState) => (
+  {
+    isLoggedIn: state.main.get('isLoggedIn'),
+  }
+);
+
+const mapDispatchToProps = (dispatch: any) => (
+  {
+    actions: bindActionCreators(blogsActions, dispatch),
+  }
+);
+
+export default connect(mapStateToProps, mapDispatchToProps)(Originals);

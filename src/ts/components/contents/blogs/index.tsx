@@ -3,5 +3,11 @@
 import Originals from './originals/Originals';
 import OriginalDetail from './originals/OriginalDetail';
 import Favorites from './favorites/Favorites';
+import EditBlog from './EditBlog';
 
-export { Originals, OriginalDetail, Favorites};
+export {
+  Originals,
+  OriginalDetail,
+  Favorites,
+  EditBlog,
+};
