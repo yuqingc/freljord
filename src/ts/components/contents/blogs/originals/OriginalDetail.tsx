@@ -11,14 +11,6 @@ import {
 
 import showBackButtonInHeader from 'ts/utils/showBackButtonInHeader';
 
-interface IOriginalDetailProps {
-  match?: {
-    params: {
-      id: string
-    };
-  };
-}
-
 const fakeArticle = `# About this website
 
 This website is a personal site of mine. There is a brief introduction.
@@ -93,6 +85,15 @@ console.log(a);
 
 declare const Prism: typeof _Prism;
 
+interface IOriginalDetailProps {
+  match?: {
+    params: {
+      id: string
+    };
+  };
+}
+
+@showBackButtonInHeader
 class OriginalDetail extends React.Component<IOriginalDetailProps, {}> {
 
   public componentDidMount () {
@@ -111,4 +112,5 @@ class OriginalDetail extends React.Component<IOriginalDetailProps, {}> {
   }
 }
 
-export default showBackButtonInHeader(OriginalDetail);
+// export default showBackButtonInHeader(OriginalDetail);
+export default OriginalDetail;

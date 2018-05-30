@@ -7,12 +7,13 @@ import { IMtState } from 'ts/reducers';
 import * as mainActions from 'ts/actions/mainActions';
 
 interface IShowBackProps {
-  actions?: any;
+  actions: typeof mainActions;
+  children: any;
 }
 
 // HOC
 // show back button on entering and disappear on exiting
-const showBackButtonInHeader = (WrappedComponent: React.ComponentClass) => {
+const showBackButtonInHeader = (WrappedComponent: React.ComponentType<any>) => {
 
   class ShowBackInHeader extends React.Component<IShowBackProps, {}> {
 
@@ -31,11 +32,7 @@ const showBackButtonInHeader = (WrappedComponent: React.ComponentClass) => {
     }
   }
 
-  const mapStateToProps = (state: IMtState) => (
-    {
-      showBackButtonInHeader: state.main.get('showBackButtonInHeader'),
-    } as any
-  );
+  const mapStateToProps = (state: IMtState) => ({});
 
   const mapDispatchToProps = (dispatch: any) => (
     {
@@ -43,7 +40,12 @@ const showBackButtonInHeader = (WrappedComponent: React.ComponentClass) => {
     }
   );
 
-  return connect(mapStateToProps, mapDispatchToProps)(ShowBackInHeader);
+  return (
+    connect(
+      mapStateToProps,
+      mapDispatchToProps
+    )(ShowBackInHeader) as any
+  );
 };
 
 export default showBackButtonInHeader;

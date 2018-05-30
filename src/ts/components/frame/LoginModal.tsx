@@ -9,7 +9,15 @@ import * as mainActions from 'ts/actions/mainActions';
 
 const FormItem  = Form.Item;
 
-class LoginModal extends React.Component<any, {}> {
+interface ILoginModal {
+  actions: typeof mainActions;
+  form: any;
+  showLoginModal: boolean;
+  isLoggingIn: boolean;
+  showLoginFailAlert: boolean;
+}
+
+class LoginModal extends React.Component<ILoginModal, {}> {
 
   private handleCancel = () => {
     const { actions } = this.props;
@@ -116,4 +124,4 @@ const mapDispatchToProps = (dispatch: any) => (
   }
 );
 
-export default connect(mapStateToProps, mapDispatchToProps)(WrappedLoginModal as any);
+export default connect(mapStateToProps, mapDispatchToProps)(WrappedLoginModal);

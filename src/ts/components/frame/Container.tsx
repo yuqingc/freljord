@@ -15,7 +15,7 @@ const { Header, Footer, Sider, Content } = Layout;
 
 interface IContainerProps {
   children: React.ReactElement<any>[];
-  actions: any;
+  actions: typeof mainActions;
 }
 
 interface IContainerState {

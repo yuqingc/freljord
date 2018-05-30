@@ -26,6 +26,7 @@ interface IHeaderBarProps {
   isLoggedIn: boolean;
   history: any;
   showBackButtonInHeader: boolean;
+  children: any;
 }
 
 class HeaderBar extends React.Component<IHeaderBarProps, {}> {

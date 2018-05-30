@@ -90,4 +90,4 @@ const mapStateToProps = (state: IMtState) => ({
   isLoggedIn: state.main.get('isLoggedIn'),
 });
 
-export default connect(mapStateToProps)(AppRouters as any);
+export default connect(mapStateToProps)(AppRouters);
