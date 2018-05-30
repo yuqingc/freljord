@@ -17,11 +17,11 @@ const routes: IMtRoute[] = _.concat(
 );
 
 export interface IMtRoute {
-  name: string;
-  path: string;
-  exact?: boolean;
-  component: (props: any) => JSX.Element;
-  isEncrypted?: boolean;
+  readonly name: string;
+  readonly path: string;
+  readonly exact?: boolean;
+  readonly component: (props: any) => JSX.Element;
+  readonly isEncrypted?: boolean;
 }
 
 export default routes;
