@@ -1,34 +1,19 @@
 // Copyright 2018 Matt<mr.chenyuqing@live.com>
 
-import { dynamicComponentFromPath } from 'ts/utils/DynamicImport';
+import importAsynchronously from 'ts/utils/dynamicImport';
 
-// import { Home } from 'ts/components/home';
-// import { Originals, OriginalDetail, Favorites } from 'ts/components/blogs';
-// import { Books, Files } from 'ts/components/downloads';
-// import Messages from 'ts/components/messages/Messages';
-// import { Encrypted } from 'ts/components/encrypted';
+const Home = importAsynchronously(() => import('ts/components/home/Home'));
+const Originals = importAsynchronously(() => import('ts/components/blogs/originals/Originals'));
+const OriginalDetail = importAsynchronously(() => import('ts/components/blogs/originals/OriginalDetail'));
+const Favorites = importAsynchronously(() => import('ts/components/blogs/favorites/Favorites'));
 
-const Home = dynamicComponentFromPath(import('ts/components/home/Home'));
-const Originals = dynamicComponentFromPath(import('ts/components/blogs/originals/Originals'));
-const OriginalDetail = dynamicComponentFromPath(import('ts/components/blogs/originals/OriginalDetail'));
-const Favorites = dynamicComponentFromPath(import('ts/components/blogs/favorites/Favorites'));
+const Books = importAsynchronously(() => import('ts/components/downloads/books/Books'));
+const Files = importAsynchronously(() => import('ts/components/downloads/files/Files'));
 
-const Books = dynamicComponentFromPath(import('ts/components/downloads/books/Books'));
-const Files = dynamicComponentFromPath(import('ts/components/downloads/files/Files'));
+const Messages = importAsynchronously(() => import('ts/components/messages/Messages'));
 
-const Messages = dynamicComponentFromPath(import('ts/components/messages/Messages'));
+const Encrypted = importAsynchronously(() => import('ts/components/encrypted/Encrypted'));
 
-const Encrypted = dynamicComponentFromPath(import('ts/components/encrypted/Encrypted'));
-
-// const Home = (props:any) => (
-//     <DynamicImport load={() => import('ts/components/home/Home')}>
-//       {(Component) => Component === null
-//         ? <p>Loading</p>
-//         : <Component {...props} />}
-//     </DynamicImport>
-//   );
-
-// You can add router configs recursively but only the two most outer levels of the hierarchy are rendered in side menu.
 const sidebarRouterConfig: ISidebarRouter[] = [
     {
         name: 'Home',

@@ -1,5 +1,7 @@
 // // Copyright 2018 Matt<mr.chenyuqing@live.com>
 
+import { Spin } from 'antd';
+
 interface IDynamicImportProps {
   load: () => Promise<any>;
   children: (component: any) => any;
@@ -33,12 +35,14 @@ class DynamicImport extends React.Component<IDynamicImportProps, IDynamicImportS
   }
 }
 
-export const dynamicComponentFromPath = (asyncComponent: Promise<any>) => (props:any) => (
-  <DynamicImport load={() => asyncComponent}>
+// The argument is a function that returns a promise
+// in case all components are imported together on the fisrt mouting
+const importAsynchronously = (asyncComponent: () => Promise<any>) => (props:any) => (
+  <DynamicImport load={asyncComponent}>
     {(Component) => Component === null
-      ? <p>Loading</p>
+      ? <Spin size="large"/>
       : <Component {...props} />}
   </DynamicImport>
 );
 
-export default DynamicImport;
+export default importAsynchronously;
