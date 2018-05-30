@@ -93,7 +93,6 @@ interface IOriginalDetailProps {
   };
 }
 
-@showBackButtonInHeader
 class OriginalDetail extends React.Component<IOriginalDetailProps, {}> {
 
   public componentDidMount () {
@@ -112,5 +111,4 @@ class OriginalDetail extends React.Component<IOriginalDetailProps, {}> {
   }
 }
 
-// export default showBackButtonInHeader(OriginalDetail);
-export default OriginalDetail;
+export default showBackButtonInHeader(OriginalDetail);
