@@ -6,9 +6,10 @@ import { BackTop } from 'antd';
 
 import {
   Paper,
-  showBackButtonInHeader,
   MarkdownBox
-} from 'ts/components/public/common';
+} from 'ts/components/public';
+
+import showBackButtonInHeader from 'ts/utils/showBackButtonInHeader';
 
 interface IOriginalDetailProps {
   match?: {

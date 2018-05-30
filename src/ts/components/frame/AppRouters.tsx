@@ -10,8 +10,7 @@ import sidebarRouterConfig,
     ISidebarRouterWithChildren
   } from 'ts/utils/sidebarRouterConfig';
 import Container from './Container';
-import { Home } from 'ts/components/home';
-import NotFound from './NotFound';
+import { NotFound } from 'ts/components/public';
 import { IMtState } from 'ts/reducers';
 
 interface IAppRoutersProps {

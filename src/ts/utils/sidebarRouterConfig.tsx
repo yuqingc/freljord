@@ -2,17 +2,17 @@
 
 import importAsynchronously from 'ts/utils/dynamicImport';
 
-const Home = importAsynchronously(() => import('ts/components/home/Home'));
-const Originals = importAsynchronously(() => import('ts/components/blogs/originals/Originals'));
-const OriginalDetail = importAsynchronously(() => import('ts/components/blogs/originals/OriginalDetail'));
-const Favorites = importAsynchronously(() => import('ts/components/blogs/favorites/Favorites'));
+const Home = importAsynchronously(() => import('ts/components/contents/home/Home'));
+const Originals = importAsynchronously(() => import('ts/components/contents/blogs/originals/Originals'));
+const OriginalDetail = importAsynchronously(() => import('ts/components/contents/blogs/originals/OriginalDetail'));
+const Favorites = importAsynchronously(() => import('ts/components/contents/blogs/favorites/Favorites'));
 
-const Books = importAsynchronously(() => import('ts/components/downloads/books/Books'));
-const Files = importAsynchronously(() => import('ts/components/downloads/files/Files'));
+const Books = importAsynchronously(() => import('ts/components/contents/downloads/books/Books'));
+const Files = importAsynchronously(() => import('ts/components/contents/downloads/files/Files'));
 
-const Messages = importAsynchronously(() => import('ts/components/messages/Messages'));
+const Messages = importAsynchronously(() => import('ts/components/contents/messages/Messages'));
 
-const Encrypted = importAsynchronously(() => import('ts/components/encrypted/Encrypted'));
+const Encrypted = importAsynchronously(() => import('ts/components/contents/encrypted/Encrypted'));
 
 const sidebarRouterConfig: ISidebarRouter[] = [
     {

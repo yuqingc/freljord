@@ -2,10 +2,10 @@
 
 import Paper from './Paper';
 import MarkdownBox from './MarkdownBox';
-import showBackButtonInHeader from './showBackButtonInHeader';
+import NotFound from './NotFound';
 
 export {
   Paper,
   MarkdownBox,
-  showBackButtonInHeader
+  NotFound,
 };

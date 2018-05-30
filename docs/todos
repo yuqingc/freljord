@@ -1,6 +1,7 @@
-- lazy loading https://engineering.innovid.com/code-splitting-using-lazy-loading-with-react-redux-typescript-and-webpack-4-3ec60140ec5a
-- caching https://webpack.js.org/guides/caching/
+- lazy loading https://engineering.innovid.com/code-splitting-using-lazy-loading-with-react-redux-typescript-and-webpack-4-3ec60140ec5a [done]
 
-- auto prefixer
+- caching https://webpack.js.org/guides/caching/ [done]
+
+- auto prefixer [done]
 
 - Images should be moved to server

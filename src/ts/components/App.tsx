@@ -2,7 +2,7 @@
 
 import { Provider } from 'react-redux';
 
-import AppRouters from 'ts/components/public/AppRouters';
+import AppRouters from 'ts/components/frame/AppRouters';
 import store from 'ts/utils/store';
 
 class App extends React.Component<{}, {}> {

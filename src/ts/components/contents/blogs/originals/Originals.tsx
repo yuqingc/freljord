@@ -4,7 +4,7 @@ import ReactMarkdown from 'react-markdown';
 import { List } from 'antd';
 import { Link } from 'react-router-dom';
 
-import { Paper } from 'ts/components/public/common';
+import { Paper } from 'ts/components/public';
 
 const data = [
   {
