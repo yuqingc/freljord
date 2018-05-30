@@ -9,7 +9,7 @@ import * as mainActions from 'ts/actions/mainActions';
 
 const FormItem  = Form.Item;
 
-interface ILoginModal {
+interface ILoginModalProps {
   actions: typeof mainActions;
   form: any;
   showLoginModal: boolean;
@@ -17,7 +17,9 @@ interface ILoginModal {
   showLoginFailAlert: boolean;
 }
 
-class LoginModal extends React.Component<ILoginModal, {}> {
+type LoginModalStateNameType = 'username' | 'password';
+
+class LoginModal extends React.Component<ILoginModalProps, {}> {
 
   private handleCancel = () => {
     const { actions } = this.props;
@@ -35,6 +37,23 @@ class LoginModal extends React.Component<ILoginModal, {}> {
         actions.login(values, resetFields);
       }
     });
+  }
+
+  private emptyField = (fieldName: LoginModalStateNameType) => () => {
+    const { form } = this.props;
+    form.resetFields([fieldName]);
+  }
+
+  private suffixOf = (fieldName: LoginModalStateNameType) => {
+    const { form } = this.props;
+    const fieldValue = form.getFieldValue(fieldName);
+
+    return fieldValue ?
+    <Icon
+      type="close-circle"
+      style={{ color: 'rgba(0,0,0,.25)', cursor: 'pointer' }}
+      onClick={this.emptyField(fieldName)}
+    /> : null;
   }
 
   public render () {
@@ -83,7 +102,11 @@ class LoginModal extends React.Component<ILoginModal, {}> {
               }
             ],
           })(
-              <Input prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Username" />
+              <Input
+                prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }}/>}
+                suffix={this.suffixOf('username')}
+                placeholder="Username"
+              />
             )}
           </FormItem>
           <FormItem>
@@ -99,7 +122,12 @@ class LoginModal extends React.Component<ILoginModal, {}> {
                 }
               ],
               })(
-              <Input prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} type="password" placeholder="Password" />
+                <Input
+                  prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                  suffix={this.suffixOf('password')}
+                  type="password"
+                  placeholder="Password"
+                />
             )}
           </FormItem>
         </Form>
