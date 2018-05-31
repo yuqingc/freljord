@@ -1,13 +1,6 @@
 // Copyright 2018 Matt<mr.chenyuqing@live.com>
 
-import Originals from './originals/Originals';
-import OriginalDetail from './originals/OriginalDetail';
-import Favorites from './favorites/Favorites';
-import EditBlog from './EditBlog';
-
-export {
-  Originals,
-  OriginalDetail,
-  Favorites,
-  EditBlog,
-};
+export { default as Originals } from './originals/Originals';
+export { default as OriginalDetail } from './originals/OriginalDetail';
+export { default as Favorites } from './favorites/Favorites';
+export { default as EditBlog } from './EditBlog';

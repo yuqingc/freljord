@@ -1,5 +1,3 @@
 // Copyright 2018 Matt<mr.chenyuqing@live.com>
 
-import Home from './Home';
-
-export { Home };
+export { default as Home } from './Home';
