@@ -1,6 +1,7 @@
 // Copyright 2018 Matt<mr.chenyuqing@live.com>
 
 import { Icon, Menu } from 'antd';
+import { ClickParam } from 'antd/lib/menu';
 import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
 
@@ -77,7 +78,7 @@ interface ISideMenuProps {
 
 class SideMenu extends React.Component<ISideMenuProps, {}> {
 
-  private handleClick = (e: any) => {
+  private handleClick = (e: ClickParam) => {
     const { history } = this.props;
     history.replace(e.key);
   }
