@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 
 import { Paper } from 'ts/components/public';
 import { IMtState } from 'ts/reducers';
-import * as blogsActions from 'ts/actions/blogsActions'
+import * as blogsActions from 'ts/actions/blogsActions';
 
 const data = [
   {
