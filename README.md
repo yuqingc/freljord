@@ -71,6 +71,13 @@ $ scripts/build-prod.sh
 
 - [todos](https://github.com/yuqingc/freljord/blob/master/docs/todos)
 
+## Contributing
+
+### [Code of Conduct](https://github.com/yuqingc/freljord/blob/master/docs/CODE_OF_CONDUCT.md)
+
+### [Contributing Guide](https://github.com/yuqingc/freljord/blob/master/docs/CONTRIBUTING.md)
+- // TODO
+
 ## Licenses
 
 - This project is under the [MIT](https://en.wikipedia.org/wiki/MIT_License) license. See [LICENSE](https://github.com/yuqingc/freljord/blob/master/LICENSE)
