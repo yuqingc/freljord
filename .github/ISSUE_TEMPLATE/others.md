@@ -1,7 +1,7 @@
 ---
 name: Others
-about: Issues which is not a bug report or a feature request
+about: Other issues
 
 ---
 
-**What is your issue?**
+Add your descriptions...

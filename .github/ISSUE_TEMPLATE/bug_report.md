@@ -21,7 +21,7 @@ A clear and concise description of what you expected to happen.
 If applicable, add screenshots to help explain your problem.
 
 **Platform (please complete the following information):**
- - OS: [e.g. Linux 18.04 x86]
+ - OS: [e.g. Ubuntu 18.04 x86]
  - Browser [e.g. chrome, safari]
  - Version [e.g. 22]
 
