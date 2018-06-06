@@ -31,23 +31,23 @@ interface IHeaderBarProps {
 
 class HeaderBar extends React.Component<IHeaderBarProps, {}> {
 
-  public goToGithubRepo () {
+  private goToGithubRepo () {
     window.open(REPO_ADDR);
   }
 
-  public login () {
+  private login () {
     const { actions } = this.props;
     console.log('login');
     actions.toggleLoginModal(true);
   }
 
-  public logout () {
+  private logout () {
     const { actions } = this.props;
     console.log('logout');
     actions.logout();
   }
 
-  public clickMenu (key: string) {
+  private clickMenu (key: string) {
     switch (key) {
       case 'logout':
         this.logout();

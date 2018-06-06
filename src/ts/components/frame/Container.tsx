@@ -23,9 +23,12 @@ interface IContainerState {
 }
 
 class Container extends React.Component<IContainerProps, IContainerState> {
-  public state = {
-    collapsed: false,
-  };
+  constructor (props: any) {
+    super(props);
+    this.state = {
+      collapsed: false,
+    };
+  }
 
   public componentDidMount () {
     const { actions } = this.props;
