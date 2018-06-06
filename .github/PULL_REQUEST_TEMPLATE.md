@@ -1,13 +1,13 @@
-**What is the PR for**?
+**What is this pull request for**?
 
 - detail 1
 - detail 2
 
-**Related issues**
+**Issue references**
 
 *put links of related issues here*
 
-**Add your reviwers**
+**Add your reviewers**
 
 /cc @
 
