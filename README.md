@@ -63,7 +63,7 @@ $ scripts/build-prod.sh
 
 - [conventions](https://github.com/yuqingc/freljord/blob/master/docs/conventions.md) contains code conventions you need to know before developing
 
-- [blueprint](https://github.com/yuqingc/freljord/blob/master/docs/blueprint.md) is a brief plan of the entire project
+- [roadmap](https://github.com/yuqingc/freljord/blob/master/docs/roadmap.md) is a brief plan of the entire project
 
 - [devlog](https://github.com/yuqingc/freljord/blob/master/docs/devlog) records developing progress
 
