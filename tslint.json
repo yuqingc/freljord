@@ -33,7 +33,6 @@
         "space-before-function-paren": [true, "always"],
         "space-within-parens": 1,
         "whitespace": [true, "check-branch", "check-decl", "check-operator", "check-module"]
-
     },
     "rulesDirectory": ["./"]
 }
