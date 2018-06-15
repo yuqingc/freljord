@@ -28,23 +28,23 @@ $ yarn
 $ yarn run start
 ```
 
-### Make production
+### Run production build
 
-1. Build & bundle everything in the `/dist/` directory
+- Build & bundle everything in the `/dist/` directory & start server
 ```
-$ yarn run build
+$ make prod
 ```
 
-2. Start the Node.js server
+- If you don't have *make utilities* installed
 ```
-$ yarn run prod
+$ yarn run build && yarn run prod
 ```
 
 ## Deployment
 
 1. Build an image of docker
 ```
-$ scripts/build-prod.sh
+$ make
 ```
 
 2. Push image to remote docker image registry
