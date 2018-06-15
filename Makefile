@@ -18,3 +18,4 @@ clean:
 
 build:
 	docker build -t freljord .
+
