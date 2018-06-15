@@ -8,7 +8,7 @@ const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin');
 const { CheckerPlugin } = require('awesome-typescript-loader');
-// const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
+const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');``
 
 const htmlPlugin = new HtmlWebpackPlugin({
   template: path.resolve(__dirname, '../src/index.html'),
@@ -69,7 +69,7 @@ const tsCheckerPlugin = new CheckerPlugin();
 
 // Using cache to build, makes complition faster
 // This could cause building fail in dev mode
-// const hardSourceWebpackPlugin = new HardSourceWebpackPlugin();
+const hardSourceWebpackPlugin = new HardSourceWebpackPlugin();
 
 module.exports = {
 	mode: 'development',
@@ -139,7 +139,7 @@ module.exports = {
     forkTsChecker,
     globalProvide,
     globalDefinition,
-    // hardSourceWebpackPlugin,
+    hardSourceWebpackPlugin,
 ],
   // publicPath is essential, without which the page will fail on refreshing the browser 
   output: {
