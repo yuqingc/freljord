@@ -1,6 +1,6 @@
 # This Makefile is used for bundling the project
 
-.PHONY: all build prod clean
+.PHONY: all build prod cleanall clean
 
 all: build
 
@@ -10,11 +10,11 @@ dist/%:
 	yarn run build
 
 cleanall: clean:
-	- rm -rf node_modules
+	- rm -rf node_modules/
 	@echo "ALL CLEANED!"
 
 clean:
-	-rm -rf dist
+	-rm -rf dist/
 
 build:
 	docker build -t freljord .
