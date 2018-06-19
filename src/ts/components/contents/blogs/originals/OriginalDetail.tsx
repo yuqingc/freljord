@@ -1,6 +1,5 @@
 // Copyright 2018 Matt<mr.chenyuqing@live.com>
 
-import ReactMarkdown from 'react-markdown';
 import * as _Prism from 'prismjs';
 import { BackTop } from 'antd';
 
