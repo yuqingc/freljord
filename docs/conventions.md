@@ -42,3 +42,7 @@ import Container from './Container';
 import NotFound from './NotFound';
 import React from 'react'; // external module importing should go to the beginning
 ```
+
+## Others
+
+Please refer to [airbnb/javascript](https://github.com/airbnb/javascript/tree/master/react)

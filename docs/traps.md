@@ -1,4 +1,4 @@
-# May you never be annoyed by this bundle of shit
+# Traps
 
 ### 1. Why does tsconfig.json NEVER WORK!!! (TS absolute importing path setting issue)
 

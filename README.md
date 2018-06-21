@@ -67,7 +67,7 @@ $ make
 
 - [devlog](https://github.com/yuqingc/freljord/blob/master/docs/devlog) records developing progress
 
-- [shit](https://github.com/yuqingc/freljord/blob/master/docs/shit.md) might offer you some advice which helps avoid annoying things while developing
+- [traps](https://github.com/yuqingc/freljord/blob/master/docs/traps.md) might offer you some advice which helps avoid annoying things while developing
 
 - [todos](https://github.com/yuqingc/freljord/blob/master/docs/todos)
 
