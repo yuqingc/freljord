@@ -27,7 +27,7 @@ const forkTsChecker = new ForkTsCheckerWebpackPlugin({
   tslint: path.resolve(__dirname, '../tslint.json')
 });
 
-// 超级无敌天坑
+// Be aware
 const tsconfigPathResolver = new TsconfigPathsPlugin({
   configFile: path.resolve(__dirname, '../tsconfig.json')
 });

@@ -27,7 +27,7 @@ const forkTsChecker = new ForkTsCheckerWebpackPlugin({
   tslint: path.resolve(__dirname, '../tslint.json')
 });
 
-// 超级无敌天坑
+// This is very useful and important
 const tsconfigPathResolver = new TsconfigPathsPlugin({
   configFile: path.resolve(__dirname, '../tsconfig.json')
 });
@@ -41,7 +41,7 @@ const globalProvide = new webpack.ProvidePlugin({
   React: 'react',
 });
 
-// 坑比东西
+// It is a track
 const globalDefinition = new webpack.DefinePlugin({
   'process.env': {
     NODE_ENV: JSON.stringify('development'),
