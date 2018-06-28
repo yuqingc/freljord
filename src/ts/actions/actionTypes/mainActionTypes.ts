@@ -1,0 +1,17 @@
+// Copyright 2018 Matt<mr.chenyuqing@live.com>
+
+export const TOGGLE_lOGIN_MODAL = 'TOGGLE_lOGIN_MODAL';
+
+export const CLEAR_USER_INFO = 'CLEAR_USER_INFO';
+
+export const TOGGLE_IS_LOGGING_IN = 'TOGGLE_IS_LOGGING_IN';
+
+export const HAS_LOGGED_IN = 'HAS_LOGGED_IN';
+
+export const CANCEL_LOGIN = 'CANCEL_LOGIN';
+
+export const CLOSE_SUCCESSFUL_LOGIN = 'CLOSE_SUCCESSFUL_LOGIN';
+
+export const ALERT_FAILED_LOGIN = 'ALERT_FAILED_LOGIN';
+
+export const TOGGLE_BACK_BUTTON_IN_HEADER = 'TOGGLE_BACK_BUTTON_IN_HEADER';

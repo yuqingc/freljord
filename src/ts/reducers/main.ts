@@ -3,6 +3,7 @@
 import immutable from 'immutable';
 
 import { IMainAction } from 'ts/actions';
+import * as mainActionTypes from 'ts/actions/actionTypes/mainActionTypes';
 
 interface IMainState {
   showLoginModal: boolean;
@@ -24,29 +25,29 @@ const initalState = immutable.fromJS({
 
 export default function home (state: typeof initalState = initalState, action: IMainAction) {
     switch (action.type) {
-        case 'TOGGLE_lOGIN_MODAL':
+        case mainActionTypes.TOGGLE_lOGIN_MODAL:
             return state.set('showLoginModal', action.show);
-        case 'CLEAR_USER_INFO':
+        case mainActionTypes.CLEAR_USER_INFO:
             return state.set('isLoggedIn', false).
             set('username', undefined);
-        case 'TOGGLE_IS_LOGGING_IN':
+        case mainActionTypes.TOGGLE_IS_LOGGING_IN:
             return state.set('isLoggingIn', action.isLoggingIn);
-        case 'HAS_LOGGED_IN':
+        case mainActionTypes.HAS_LOGGED_IN:
             return state.set('isLoggedIn', true).
                 set('username', action.username);
-        case 'CANCEL_LOGIN':
+        case mainActionTypes.CANCEL_LOGIN:
             return state.set('showLoginModal', false).
                 set('showLoginFailAlert', false);
-        case 'CLOSE_SUCCESSFUL_LOGIN':
+        case mainActionTypes.CLOSE_SUCCESSFUL_LOGIN:
             return state.set('username', action.username).
                 set('isLoggedIn', true).
                 set('isLoggingIn', false).
                 set('showLoginFailAlert', false).
                 set('showLoginModal', false);
-        case 'ALERT_FAILED_LOGIN':
+        case mainActionTypes.ALERT_FAILED_LOGIN:
             return state.set('isLoggingIn', false).
                 set('showLoginFailAlert', true);
-        case 'TOGGLE_BACK_BUTTON_IN_HEADER':
+        case mainActionTypes.TOGGLE_BACK_BUTTON_IN_HEADER:
             return state.set('showBackButtonInHeader', action.show);
         default:
             return state;

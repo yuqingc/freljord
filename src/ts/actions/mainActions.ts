@@ -1,46 +1,44 @@
 // Copyright 2018 Matt<mr.chenyuqing@live.com>
 
 import _ from 'lodash';
-import { message } from 'antd';
 
 import {
   createAxios,
   formParamsFrom,
   showGlobalMessage
 } from 'ts/utils/utils';
-
-type showGlobalMessageKeyType = 'info' | 'success' | 'error' | 'warning';
+import * as mainActionTypes from './actionTypes/mainActionTypes';
 
 export const toggleLoginModal = (show: boolean) => ({
-  type: 'TOGGLE_lOGIN_MODAL',
+  type: mainActionTypes.TOGGLE_lOGIN_MODAL,
   show,
 });
 
 export const clearUserInfo = () => ({
-  type: 'CLEAR_USER_INFO',
+  type: mainActionTypes.CLEAR_USER_INFO,
 });
 
 export const toggleIsLoggingIn = (isLoggingIn: boolean) => ({
-  type: 'TOGGLE_IS_LOGGING_IN',
+  type: mainActionTypes.TOGGLE_IS_LOGGING_IN,
   isLoggingIn,
 });
 
 export const hasLoggedIn = (username: string) => ({
-  type: 'HAS_LOGGED_IN',
+  type: mainActionTypes.HAS_LOGGED_IN,
   username,
 });
 
 export const cancelLogin = () => ({
-  type: 'CANCEL_LOGIN',
+  type: mainActionTypes.CANCEL_LOGIN,
 });
 
 export const closeSuccessfulLogin = (username: string) => ({
-  type: 'CLOSE_SUCCESSFUL_LOGIN',
+  type: mainActionTypes.CLOSE_SUCCESSFUL_LOGIN,
   username,
 });
 
 export const alertFailedLogin = () => ({
-  type: 'ALERT_FAILED_LOGIN',
+  type: mainActionTypes.ALERT_FAILED_LOGIN,
 });
 
 export const login = (
@@ -89,6 +87,6 @@ export const checkTokenAtLaunch = () => (dispatch: any) => {
 };
 
 export const toggleBackButtonInHeader = (show: boolean) => ({
-  type: 'TOGGLE_BACK_BUTTON_IN_HEADER',
+  type: mainActionTypes.TOGGLE_BACK_BUTTON_IN_HEADER,
   show,
 });
