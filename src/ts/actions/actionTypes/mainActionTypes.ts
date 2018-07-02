@@ -1,6 +1,6 @@
 // Copyright 2018 Matt<mr.chenyuqing@live.com>
 
-export const TOGGLE_lOGIN_MODAL = 'TOGGLE_lOGIN_MODAL';
+export const TOGGLE_LOGIN_MODAL = 'TOGGLE_LOGIN_MODAL';
 
 export const CLEAR_USER_INFO = 'CLEAR_USER_INFO';
 

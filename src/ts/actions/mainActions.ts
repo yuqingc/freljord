@@ -10,7 +10,7 @@ import {
 import * as mainActionTypes from './actionTypes/mainActionTypes';
 
 export const toggleLoginModal = (show: boolean) => ({
-  type: mainActionTypes.TOGGLE_lOGIN_MODAL,
+  type: mainActionTypes.TOGGLE_LOGIN_MODAL,
   show,
 });
 
@@ -50,7 +50,6 @@ export const login = (
     `/ryze/login`,
     formParamsFrom(values),
   ).then(res => {
-    console.log('login success', res);
     const username = _.get(res, 'data.username');
     const token = _.get(res, 'data.access_token');
     localStorage.setItem('token', token);
@@ -59,7 +58,7 @@ export const login = (
     showGlobalMessage('success', 'Logged in successfully!');
     cb();
   }).catch(err => {
-    console.log('login err', err);
+    console.error('login err:', err);
     dispatch(alertFailedLogin());
     showGlobalMessage('error', 'Log in failed!');
   });
@@ -77,10 +76,10 @@ export const checkTokenAtLaunch = () => (dispatch: any) => {
   if (localToken) {
     createAxios().get('/ryze/varify_token').
     then(res => {
-      console.log('check tokennn', res);
       const username = _.get(res, 'data.usr');
       dispatch(hasLoggedIn(username));
     }).catch(err => {
+      console.error('varify token error:', err);
       showGlobalMessage('warning', 'Invalid or expired token. Please log in manually.');
     });
   }

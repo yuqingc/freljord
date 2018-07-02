@@ -25,7 +25,7 @@ const initalState = immutable.fromJS({
 
 export default function home (state: typeof initalState = initalState, action: IMainAction) {
     switch (action.type) {
-        case mainActionTypes.TOGGLE_lOGIN_MODAL:
+        case mainActionTypes.TOGGLE_LOGIN_MODAL:
             return state.set('showLoginModal', action.show);
         case mainActionTypes.CLEAR_USER_INFO:
             return state.set('isLoggedIn', false).
