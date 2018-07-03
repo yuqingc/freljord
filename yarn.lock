@@ -84,9 +84,9 @@
     "@types/history" "*"
     "@types/react" "*"
 
-"@types/react-router@^4.0.27":
-  version "4.0.27"
-  resolved "https://registry.yarnpkg.com/@types/react-router/-/react-router-4.0.27.tgz#553f54df7c4b09d6046b0201ce9b91c46b2940e3"
+"@types/react-router@^4.0.28":
+  version "4.0.28"
+  resolved "https://registry.yarnpkg.com/@types/react-router/-/react-router-4.0.28.tgz#b0445fc38613c81e92ca9ec0e08ab36697d51003"
   dependencies:
     "@types/history" "*"
     "@types/react" "*"
@@ -2520,9 +2520,9 @@ har-validator@~5.0.3:
     ajv "^5.1.0"
     har-schema "^2.0.0"
 
-hard-source-webpack-plugin@^0.9.0:
-  version "0.9.0"
-  resolved "https://registry.yarnpkg.com/hard-source-webpack-plugin/-/hard-source-webpack-plugin-0.9.0.tgz#f53a793f9b293da2a3c31b9a79069219a9c433f6"
+hard-source-webpack-plugin@^0.10.1:
+  version "0.10.1"
+  resolved "https://registry.yarnpkg.com/hard-source-webpack-plugin/-/hard-source-webpack-plugin-0.10.1.tgz#039c1e947bddf13d957c3e9803b68f5f02f12d2a"
   dependencies:
     chalk "^2.4.1"
     find-cache-dir "^2.0.0"
