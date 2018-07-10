@@ -8,7 +8,7 @@ import {
   MarkdownBox
 } from 'ts/components/public';
 
-import showBackButtonInHeader from 'ts/utils/showBackButtonInHeader';
+import withBackButtonInHeader from 'ts/utils/withBackButtonInHeader';
 
 const fakeArticle = `# About this website
 
@@ -110,4 +110,4 @@ class OriginalDetail extends React.Component<IOriginalDetailProps, {}> {
   }
 }
 
-export default showBackButtonInHeader(OriginalDetail);
+export default withBackButtonInHeader(OriginalDetail);

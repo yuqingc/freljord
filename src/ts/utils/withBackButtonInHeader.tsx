@@ -13,7 +13,7 @@ interface IShowBackProps {
 
 // HOC
 // show back button on entering and disappear on exiting
-const showBackButtonInHeader = (WrappedComponent: React.ComponentType<any>) => {
+const withBackButtonInHeader = (WrappedComponent: React.ComponentType<any>) => {
 
   class ShowBackInHeader extends React.Component<IShowBackProps, {}> {
 
@@ -48,4 +48,4 @@ const showBackButtonInHeader = (WrappedComponent: React.ComponentType<any>) => {
   );
 };
 
-export default showBackButtonInHeader;
+export default withBackButtonInHeader;
