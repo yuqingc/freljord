@@ -1,11 +1,16 @@
 // Copyright 2018 Matt<mr.chenyuqing@live.com>
 
+$hearder-bar-height: 64px;
+
 .mt-header-bar {
-    height: 64px;
+    height: $hearder-bar-height;
     background-color: #ffffff; 
     padding: 0 10px;
     box-shadow: 0 6px 5px #dddddd;
     .mt-header-left {
+        width: 104px;
+        height: $hearder-bar-height;
+        float: left;
         display: flex;
         align-items: center;
         .back-btn {
@@ -13,14 +18,11 @@
         }
     }
     .mt-header-right {
+        width: 230px;
+        height: $hearder-bar-height;
+        float: right;
         display: flex;
         align-items: center;
-        justify-content: flex-end;
-        .mt-header-right-items {
-            width: 220px;
-            display: flex;
-            align-items: center;
-            justify-content: space-around;
-        }
+        justify-content: space-around;
     }
 }

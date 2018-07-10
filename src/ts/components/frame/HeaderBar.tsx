@@ -1,6 +1,7 @@
 // Copyright 2018 Matt<mr.chenyuqing@live.com>
 
-import { Col,
+import {
+  Col,
   Row,
   Button,
   Icon,
@@ -68,11 +69,8 @@ class HeaderBar extends React.Component<IHeaderBarProps, {}> {
     );
 
     return (
-    <Row
-      className="mt-header-bar"
-      type="flex"
-      justify="space-between">
-      <Col span={LEFT_PARTS_COL} className="mt-header-left">
+    <div className="mt-header-bar">
+      <div className="mt-header-left">
         <Tooltip placement="bottom" title="Home">
           <Link to="/">
             <Button shape="circle" icon="home"/>
@@ -82,29 +80,27 @@ class HeaderBar extends React.Component<IHeaderBarProps, {}> {
           showBackButtonInHeader &&
           <Tooltip placement="bottom" title="Go back">
             <Button
+              className="back-btn"
               shape="circle"
               icon="rollback"
               onClick={() => history.goBack()}
-              className="back-btn"
             />
           </Tooltip>
         }
-      </Col>
-      <Col span={RIGHT_PARTS_COL} className="mt-header-right">
-        <div className="mt-header-right-items">
-          <Tooltip placement="bottom" title="Fork on GitHub">
-            <Button onClick={this.goToGithubRepo}><Icon type="fork"/>Contribute</Button>
+      </div>
+      <div className="mt-header-right">
+        <Tooltip placement="bottom" title="Fork on GitHub">
+          <Button onClick={this.goToGithubRepo}><Icon type="fork"/>Contribute</Button>
+        </Tooltip>
+        {
+          isLoggedIn ?
+          <Dropdown overlay={userMenu}><span><Icon type="user"/> {username} <Icon type="down"/></span></Dropdown> :
+          <Tooltip placement="bottom" title="Login to manage this site">
+            <Button onClick={() => this.login()}><Icon type="login"/>Log in</Button>
           </Tooltip>
-          {
-            isLoggedIn ?
-            <Dropdown overlay={userMenu}><span><Icon type="user"/> {username} <Icon type="down"/></span></Dropdown> :
-            <Tooltip placement="bottom" title="Login to manage this site">
-              <Button onClick={() => this.login()}><Icon type="login"/>Log in</Button>
-            </Tooltip>
-          }
-        </div>
-      </Col>
-    </Row>);
+        }
+      </div>
+    </div>);
   }
 }
 

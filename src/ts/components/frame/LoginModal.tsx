@@ -1,6 +1,7 @@
 // Copyright 2018 Matt<mr.chenyuqing@live.com>
 
 import { Modal, Form, Input, Icon, Button, Alert } from 'antd';
+import { FormComponentProps } from 'antd/lib/form';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
@@ -9,9 +10,8 @@ import * as mainActions from 'ts/actions/mainActions';
 
 const FormItem  = Form.Item;
 
-interface ILoginModalProps {
+interface ILoginModalProps extends FormComponentProps {
   actions: typeof mainActions;
-  form: any;
   showLoginModal: boolean;
   isLoggingIn: boolean;
   showLoginFailAlert: boolean;
@@ -59,7 +59,6 @@ class LoginModal extends React.Component<ILoginModalProps, {}> {
   public render () {
     const {
       showLoginModal,
-      actions,
       isLoggingIn,
       showLoginFailAlert,
     } = this.props;
@@ -136,7 +135,7 @@ class LoginModal extends React.Component<ILoginModalProps, {}> {
   }
 }
 
-const WrappedLoginModal = Form.create()(LoginModal);
+const LoginModalForm = Form.create()(LoginModal);
 
 const mapStateToProps = (state: IMtState) => (
   {
@@ -152,4 +151,4 @@ const mapDispatchToProps = (dispatch: any) => (
   }
 );
 
-export default connect(mapStateToProps, mapDispatchToProps)(WrappedLoginModal);
+export default connect(mapStateToProps, mapDispatchToProps)(LoginModalForm);
