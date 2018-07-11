@@ -1,6 +1,7 @@
 // Copyright 2018 Matt<mr.chenyuqing@live.com>
 
 import _ from 'lodash';
+import { Dispatch } from 'redux';
 
 import {
   createAxios,
@@ -43,8 +44,8 @@ export const alertFailedLogin = () => ({
 
 export const login = (
   values: {username: string, password: string},
-  cb: () => any
-) => (dispatch: any) => {
+  cb: () => void
+) => (dispatch: Dispatch) => {
   dispatch(toggleIsLoggingIn(true));
   createAxios().post(
     `/ryze/login`,
@@ -64,14 +65,14 @@ export const login = (
   });
 };
 
-export const logout = () => (dispatch: any) => {
+export const logout = () => (dispatch: Dispatch) => {
   localStorage.removeItem('token');
   localStorage.removeItem('username');
   dispatch(clearUserInfo());
   showGlobalMessage('warning', 'Logged out!');
 };
 
-export const checkTokenAtLaunch = () => (dispatch: any) => {
+export const checkTokenAtLaunch = () => (dispatch: Dispatch) => {
   const localToken = localStorage.getItem('token');
   if (localToken) {
     createAxios().get('/ryze/varify_token').

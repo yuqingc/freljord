@@ -2,7 +2,7 @@
 
 import { Icon, Menu } from 'antd';
 import { ClickParam } from 'antd/lib/menu';
-import { withRouter } from 'react-router';
+import { withRouter, RouteComponentProps } from 'react-router';
 import { connect } from 'react-redux';
 
 import { IMtState } from 'ts/reducers';
@@ -70,17 +70,19 @@ const SideMenuConfig: ISideMenuConfig[] = [
   },
 ];
 
-interface ISideMenuProps {
+interface ISideMenuProps extends RouteComponentProps<ISideMenuProps> {
   location: any;
   history: any;
   isLoggedIn: boolean;
+  onChangeMenu?: (key: string) => void;
 }
 
 class SideMenu extends React.Component<ISideMenuProps, {}> {
 
   private handleClick = (e: ClickParam) => {
-    const { history } = this.props;
+    const { history, onChangeMenu } = this.props;
     history.replace(e.key);
+    onChangeMenu && onChangeMenu(e.key);
   }
 
   // tslint:disable-next-line:member-ordering
@@ -148,7 +150,9 @@ const mapStateToProps = (state: IMtState) => ({
   isLoggedIn: state.main.get('isLoggedIn'),
 });
 
+const connectedSideMenu = connect(mapStateToProps, null,  null, { pure: false })(SideMenu);
+
 // bug
 // fixed: https://github.com/ant-design/ant-design/issues/10380
-export default withRouter(connect(mapStateToProps, null,  null, { pure: false })(SideMenu) as any);
+export default withRouter(connectedSideMenu);
 // export default withRouter(SideMenu);

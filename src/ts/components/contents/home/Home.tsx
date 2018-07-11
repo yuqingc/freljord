@@ -1,6 +1,6 @@
 // Copyright 2018 Matt<mr.chenyuqing@live.com>
 
-import { bindActionCreators } from 'redux';
+import { bindActionCreators, Dispatch } from 'redux';
 import { connect } from 'react-redux';
 import { Icon, Tooltip, Carousel } from 'antd';
 import CopyToClipboard from 'react-copy-to-clipboard';
@@ -73,10 +73,10 @@ const mapStateToProps = (state: IMtState) => (
   }
 );
 
-const mapDispatchToProps = (dispatch: any) => (
+const mapDispatchToProps = (dispatch: Dispatch) => (
   {
     actions: bindActionCreators(homeActions, dispatch),
   }
 );
 
-export default connect(mapStateToProps, mapDispatchToProps)(Home as any);
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

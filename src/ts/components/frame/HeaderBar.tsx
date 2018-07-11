@@ -12,7 +12,7 @@ import {
 import { Link } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router';
+import { withRouter, RouteComponentProps } from 'react-router';
 
 import { REPO_ADDR } from 'ts/utils/consts';
 import { IMtState } from 'ts/reducers';
@@ -21,13 +21,12 @@ import * as mainActions from 'ts/actions/mainActions';
 const LEFT_PARTS_COL: number = 3;
 const RIGHT_PARTS_COL: number = 6;
 
-interface IHeaderBarProps {
+interface IHeaderBarProps extends RouteComponentProps<IHeaderBarProps> {
   actions: any;
   username: string;
   isLoggedIn: boolean;
   history: any;
   showBackButtonInHeader: boolean;
-  children: any;
 }
 
 class HeaderBar extends React.Component<IHeaderBarProps, {}> {
@@ -119,4 +118,4 @@ const mapDispatchToProps = (dispatch: any) => (
   }
 );
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(HeaderBar as any) as any);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(HeaderBar));

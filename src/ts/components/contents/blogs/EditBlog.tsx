@@ -30,6 +30,7 @@ class EditBlog extends React.Component<IEditBlogProps, {}> {
 
   render () {
     const { getFieldDecorator } = this.props.form;
+    // throw new Error('A fucking error'); // test error boundaries in React 16
 
     return (
       <Paper>

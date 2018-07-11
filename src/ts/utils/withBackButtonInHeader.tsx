@@ -1,7 +1,7 @@
 // Copyright 2018 Matt<mr.chenyuqing@live.com>
 
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
+import { bindActionCreators, Dispatch } from 'redux';
 
 import { IMtState } from 'ts/reducers';
 import * as mainActions from 'ts/actions/mainActions';
@@ -34,18 +34,16 @@ const withBackButtonInHeader = (WrappedComponent: React.ComponentType<any>) => {
 
   const mapStateToProps = (state: IMtState) => ({});
 
-  const mapDispatchToProps = (dispatch: any) => (
+  const mapDispatchToProps = (dispatch: Dispatch) => (
     {
       actions: bindActionCreators(mainActions, dispatch),
     }
   );
 
-  return (
-    connect(
+  return connect(
       mapStateToProps,
       mapDispatchToProps
-    )(ShowBackInHeader) as any
-  );
+    )(ShowBackInHeader);
 };
 
 export default withBackButtonInHeader;

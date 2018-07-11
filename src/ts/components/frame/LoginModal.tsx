@@ -2,7 +2,7 @@
 
 import { Modal, Form, Input, Icon, Button, Alert } from 'antd';
 import { FormComponentProps } from 'antd/lib/form';
-import { bindActionCreators } from 'redux';
+import { bindActionCreators, Dispatch } from 'redux';
 import { connect } from 'react-redux';
 
 import { IMtState } from 'ts/reducers';
@@ -145,7 +145,7 @@ const mapStateToProps = (state: IMtState) => (
   }
 );
 
-const mapDispatchToProps = (dispatch: any) => (
+const mapDispatchToProps = (dispatch: Dispatch) => (
   {
     actions: bindActionCreators(mainActions, dispatch),
   }

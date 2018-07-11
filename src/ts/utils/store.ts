@@ -8,8 +8,6 @@ import reducer from 'ts/reducers';
 
 let store: Store;
 
-declare const process: any;
-
 if (process.env.NODE_ENV == 'development') {
     store = createStore(
         reducer,
