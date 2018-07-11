@@ -1,8 +1,6 @@
 // Copyright 2018 Matt<mr.chenyuqing@live.com>
 
 import {
-  Col,
-  Row,
   Button,
   Icon,
   Tooltip,
@@ -17,9 +15,6 @@ import { withRouter, RouteComponentProps } from 'react-router';
 import { REPO_ADDR } from 'ts/utils/consts';
 import { IMtState } from 'ts/reducers';
 import * as mainActions from 'ts/actions/mainActions';
-
-const LEFT_PARTS_COL: number = 3;
-const RIGHT_PARTS_COL: number = 6;
 
 interface IHeaderBarProps extends RouteComponentProps<IHeaderBarProps> {
   actions: any;
